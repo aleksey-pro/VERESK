@@ -1,6 +1,49 @@
 extends ../base
 block title
-    | Index page
+    | Вереск
 block main
-    h1 Традиционная проверка
-    img(src=require("./webpack.svg") width="100")
+  section#main  
+    .section-wrapper.main-wrapper
+  section#about
+    .section-wrapper        
+      .heading.heading--about о компании     
+      p.about__text
+        |  Кондитерская фабрика ООО "Вереск" является одним из крупнейших производителей 
+        |  вафельной продукции в Северо-Западном регионе. 
+        |  Благодаря использованию современных автоматических линий по производству вафель 
+        |  и вафельных трубочек фирмы "FRANZ HAAS WAFFELMASHINEN INDUSTRIE AG" (Австрия) 
+        |  и высокопроизводительного фасовочного оборудования, непрерывно совершенствуется 
+        |  ассортимент и качество нашей продукции, входящей в каталог "100 лучших товаров России" за 2005г.
+      .about__image
+  section#contacts
+    .section-wrapper        
+      .heading.heading--contacts контакты
+      .collage
+        .collage__book 
+        .cart-button            
+  section#partners
+    .section-wrapper
+      .title.contacts-title на карте
+      #map
+      .title.partners-title наши партнеры
+      .partners-tiles
+        .partners-tiles--left
+          a(href='#').partners-tiles__link
+            .partners-tiles__image
+          .partners-tiles__desc
+            span 
+              | Официальный поставщик завода «Петербургский торговый дом».  
+              br
+              | Надежный партнер на рынке.
+        .partners-tiles--right
+          a(href='#').partners-tiles__link
+            .partners-tiles__image
+          .partners-tiles__desc
+            span
+              | Завод хлебобулочныых изделей «Свирьхлеб».  
+              br
+              | Качество и вкус проверенное и зарекомендававший себя. 
+  footer.footer
+    .section-wrapper.footer-wrapper
+      .footer__logo
+        span ооо вереск

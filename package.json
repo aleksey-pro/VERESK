@@ -22,10 +22,12 @@
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-spritesmith": "^0.3.5"
   },
   "dependencies": {
     "jquery": "^3.2.1",
-    "normalize.css": "^6.0.0"
+    "normalize.css": "^6.0.0",
+    "ymaps": "^0.1.1"
   }
 }

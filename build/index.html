@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <title>Index page
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Вереск кондитерская продукция">
+    <meta name="keywords" content="вереск кондитерская продукция">
+    <meta name="author" content="Aleksey Isaev">
+    <title>Вереск
     </title>
+    <body>     
+      <div class="wrapper">
+<aside class="aside">
+  <div class="panel">
+    <div class="panel__contact">
+      <div class="panel__contact-email">office@veresk-vafli.ru</div>
+      <div class="panel__contact-phone">(812) 740-22-79</div>
+    </div>
+    <div class="panel__logo"><img src="images/top_icon.png" alt="Вереск логотип"></div>
+    <div class="panel__title">Вереск
+      <div class="panel__title_sub">кондитерская фабрика</div>
+    </div>
+    <ul class="main-menu">
+      <li class="main-menu__item"> <a class="main-menu__link" href="#main">главная</a></li>
+      <li class="main-menu__item"><a class="main-menu__link" href="#about">о компании</a></li>
+      <li class="main-menu__item collapse-trigger"><a class="main-menu__link" href="#">продукция</a>
+        <ul class="products-menu hidden">
+          <li class="products-menu__item"><a class="products-menu__link" href="#">вафли</a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="#">вафельные трубочки</a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="#">вафельные торты</a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="#">диетическое питание                                           </a></li>
+        </ul>
+      </li>
+      <li class="main-menu__item"><a class="main-menu__link" href="#contacts">контакты </a></li>
+      <li class="main-menu__item price"><a class="main-menu__link" href="./price.pdf">прайс-лист</a></li>
+    </ul>
+  </div>
+</aside>
+        <section id="main"> 
+          <div class="section-wrapper main-wrapper"></div>
+        </section>
+        <section id="about">
+          <div class="section-wrapper">       
+            <div class="heading heading--about">о компании     </div>
+            <p class="about__text">
+               Кондитерская фабрика ООО "Вереск" является одним из крупнейших производителей 
+               вафельной продукции в Северо-Западном регионе. 
+               Благодаря использованию современных автоматических линий по производству вафель 
+               и вафельных трубочек фирмы "FRANZ HAAS WAFFELMASHINEN INDUSTRIE AG" (Австрия) 
+               и высокопроизводительного фасовочного оборудования, непрерывно совершенствуется 
+               ассортимент и качество нашей продукции, входящей в каталог "100 лучших товаров России" за 2005г.
+            </p>
+            <div class="about__image"></div>
+          </div>
+        </section>
+        <section id="contacts"></section>
+        <section id="partners"></section>
+      </div>
+    <script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/index.js"></script></body>
   <link href="./css/common.css" rel="stylesheet"><link href="./css/index.css" rel="stylesheet"></head>
-  <body>
-    <h1>Традиционная проверка</h1><img src="images/webpack.svg" width="100">
-  <script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/index.js"></script></body>
 </html>

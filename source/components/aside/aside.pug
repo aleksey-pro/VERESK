@@ -1,0 +1,34 @@
+aside.aside
+  .panel
+    .panel__contact
+      .panel__contact-email
+        | office@veresk-vafli.ru
+      .panel__contact-phone
+        | (812) 740-22-79
+    .panel__logo
+      img(src=require("./top_icon.png") alt="Вереск логотип")
+    .panel__title
+      | Вереск
+      .panel__title_sub
+        | кондитерская фабрика
+    ul.main-menu
+      li.main-menu__item 
+        a(href="#main").main-menu__link главная
+      li.main-menu__item
+        a(href="#about").main-menu__link о компании
+      li.main-menu__item.collapse-trigger
+        a(href="#").main-menu__link продукция
+        ul.products-menu.hidden
+          li.products-menu__item
+            a(href="#").products-menu__link вафли
+          li.products-menu__item
+            a(href="#").products-menu__link вафельные трубочки
+          li.products-menu__item
+            a(href="#").products-menu__link вафельные торты
+          li.products-menu__item
+            a(href="#").products-menu__link диетическое питание                                           
+      li.main-menu__item
+        a(href="#contacts").main-menu__link контакты 
+      li.main-menu__item.price
+        a(href="./price.pdf").main-menu__link прайс-лист
+

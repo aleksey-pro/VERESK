@@ -9,6 +9,10 @@ const css = require('./webpack/css');
 const extractCSS = require('./webpack/css.extract');
 const uglifyJS = require('./webpack/js.uglify');
 const images = require('./webpack/images');
+const fonts = require('./webpack/fonts');
+const js = require('./webpack/babel.js');
+const sprite = require('./webpack/sprite');
+
 
 const PATHS = {
     source: path.join(__dirname, 'source'),
@@ -19,11 +23,22 @@ const common = merge([
     {
         entry: {
             'index': PATHS.source + '/pages/index/index.js',
-            'blog': PATHS.source + '/pages/blog/blog.js'
+            'products': PATHS.source + '/pages/products/products.js'
         },
+        devtool: 'source-map',
         output: {
             path: PATHS.build,
             filename: 'js/[name].js'
+        },
+        resolve: {
+            modules: ["node_modules", path.resolve(__dirname, 'source/components/aside')],            
+            alias: {
+                'sprite': path.resolve(__dirname, 'source/spritesmith/'),
+                'img': path.resolve(__dirname, 'source/img/'),
+                'fonts': path.resolve(__dirname, 'source/fonts/')
+                // ,
+                // 'sass': path.resolve(__dirname, 'source/sass/')
+            }
         },
         plugins: [
             new HtmlWebpackPlugin({
@@ -32,9 +47,9 @@ const common = merge([
                 template: PATHS.source + '/pages/index/index.pug'
             }),
             new HtmlWebpackPlugin({
-                filename: 'blog.html',
-                chunks: ['blog', 'common'],
-                template: PATHS.source + '/pages/blog/blog.pug'
+                filename: 'products.html',
+                chunks: ['products', 'common'],
+                template: PATHS.source + '/pages/products/products.pug'
             }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common'
@@ -46,7 +61,8 @@ const common = merge([
         ]
     },
     pug(),
-    images()
+    images(),
+    fonts()
 ]);
 
 module.exports = function(env) {
@@ -54,16 +70,19 @@ module.exports = function(env) {
         return merge([
             common,
             extractCSS(),
-            uglifyJS()
+            js()
+            // ,
+            // uglifyJS({useSourceMap: true})
         ]);
     }
     if (env === 'development'){
         return merge([
             common,
             devserver(),
-            sass(),
-            css()
-        ])
+            js(),
+            css(),
+            sass()            
+        ]);
     }
 };
 

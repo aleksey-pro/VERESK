@@ -1,2 +1,2 @@
-h1 {
-  color: brown; }
+section{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.section-wrapper{width:70.3vw}section#main{height:100%}.main-wrapper{height:100%;background-size:cover;background:#fff url(../images/slider-1.jpg) 0 0 no-repeat}.about__image{background-size:cover;background:#fff url(../images/about_production.png) 0 0 no-repeat;height:100%}
+/*# sourceMappingURL=index.css.map*/

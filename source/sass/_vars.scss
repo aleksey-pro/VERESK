@@ -1,0 +1,42 @@
+@import 'fonts';
+
+$yellow: #FFD20F;
+$blue: #0e0ab3;
+$light-blue: #6d75ff;
+$white: #fff;
+
+
+%clearfix {
+  &:after, &:before {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin widescreen() {
+  @media screen and (min-width: 1441px) {
+    @content;
+  }
+}
+
+@mixin desktops() {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+
+@mixin tablets() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phones() {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
