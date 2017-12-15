@@ -2,11 +2,17 @@ extends ../base
 block title
     | Вереск
 block main
-  section#main  
-    .section-wrapper.main-wrapper
+  section#main
+    .main__wrapper  
+      .swiper-container
+        .swiper-wrapper
+          .swiper-slide.swiper-slide--first
+          .swiper-slide.swiper-slide--second
+          .swiper-slide.swiper-slide--third
+        .swiper-pagination
   section#about
     .section-wrapper        
-      .heading.heading--about о компании     
+      .heading.heading--about о компании  
       p.about__text
         |  Кондитерская фабрика ООО "Вереск" является одним из крупнейших производителей 
         |  вафельной продукции в Северо-Западном регионе. 
@@ -19,7 +25,39 @@ block main
     .section-wrapper        
       .heading.heading--contacts контакты
       .collage
-        .collage__book 
+        .collage__book
+          .contacts-data
+            .collage-photo
+            .contacts-text
+              .contacts-par
+                p.contacts-par_title Наш адрес:
+                p
+                  | 188800 г.Выборг,
+                  br
+                  | ул.Данилова д.15
+              .contacts-par
+                p.contacts-par_title Отдел продаж: 
+                p
+                  | тел. (812) 740-22-79
+              .contacts-par
+                p.contacts-par_title Отдел закупок:
+                p
+                  | тел. (812) 740-22-79
+              .contacts-par
+                p.contacts-par_title e-mail: 
+                p
+                  | office@veresk-vafli.ru
+              .contacts-par
+                p.contacts-par_title Часы работы:
+                p
+                  | Пн.-Пт.: 09.00-18.00 
+            .contacts-form 
+              .contacts-form__title обратная связь
+              form.contacts-form__form
+                input(type='text' name='text' placeholder='Имя')
+                input(type='email' name='email' placeholder='E-mail')
+                textarea(name="description", cols="30", rows="10" placeholder='Текст')
+                input(type='submit' value='Отправить' name='submit' placeholder='Отправить')
         .cart-button            
   section#partners
     .section-wrapper
@@ -27,18 +65,20 @@ block main
       #map
       .title.partners-title наши партнеры
       .partners-tiles
-        .partners-tiles--left
+        .partners-tile.partners-tile--left
           a(href='#').partners-tiles__link
-            .partners-tiles__image
-          .partners-tiles__desc
+            .partners-tile__image
+          .partners-tile__desc
+            .partners-tile__pointer
             span 
               | Официальный поставщик завода «Петербургский торговый дом».  
               br
               | Надежный партнер на рынке.
-        .partners-tiles--right
+        .partners-tile.partners-tile--right
           a(href='#').partners-tiles__link
-            .partners-tiles__image
-          .partners-tiles__desc
+            .partners-tile__image
+          .partners-tile__desc
+            .partners-tile__pointer
             span
               | Завод хлебобулочныых изделей «Свирьхлеб».  
               br

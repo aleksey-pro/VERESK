@@ -1,11 +1,5 @@
 @import 'fonts';
 
-$yellow: #FFD20F;
-$blue: #0e0ab3;
-$light-blue: #6d75ff;
-$white: #fff;
-
-
 %clearfix {
   &:after, &:before {
     content: '';
@@ -15,6 +9,31 @@ $white: #fff;
     clear: both;
   }
 }
+
+$yellow: #FFD20F;
+$blue: #0e0ab3;
+$light-blue: #6d75ff;
+$white: #fff;
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+
 
 @mixin widescreen() {
   @media screen and (min-width: 1441px) {

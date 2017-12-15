@@ -1,12 +1,12 @@
-@import '_vars';
-@import 'sprite';
+@import "fonts";
 
 html {
 	height: 100%;
 }
 
 body {
-	background-color: $white;
+	background-color: #fff;
+	font-family: 'Tinos', Georgia, serif;
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
@@ -24,4 +24,3 @@ ul {
   margin: 0;
   list-style: none;
 }
-

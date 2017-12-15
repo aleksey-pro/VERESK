@@ -31,13 +31,13 @@ const common = merge([
             filename: 'js/[name].js'
         },
         resolve: {
-            modules: ["node_modules", path.resolve(__dirname, 'source/components/aside')],            
+            modules: ["node_modules", path.resolve(__dirname, 'source')],        
             alias: {
                 'sprite': path.resolve(__dirname, 'source/spritesmith/'),
                 'img': path.resolve(__dirname, 'source/img/'),
-                'fonts': path.resolve(__dirname, 'source/fonts/')
-                // ,
-                // 'sass': path.resolve(__dirname, 'source/sass/')
+                'fonts': path.resolve(__dirname, 'source/fonts/'),
+                'scss': path.resolve(__dirname, 'source/sass/'),
+                'libs': path.resolve(__dirname, 'source/libs/')
             }
         },
         plugins: [

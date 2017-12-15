@@ -1,10 +1,18 @@
 import '../../sass/main.scss';
+import '../../sass/_vars.scss';
+import '../../sass/swiper.css';
 import './index.scss';
 import 'normalize.css';
 
-import createMenu from '../../components/aside/aside';
-
 import ymaps from 'ymaps';
+import Swiper from 'swiper'; // http://idangero.us/swiper/api/
+import createMenu from '../../components/aside/aside';
+import Animation from '../../libs/animate.js';
+
+
+var anim = new Animation;
+
+anim.play();
 
 ymaps.load().then(maps => {
   const map = new maps.Map(document.getElementById("map"), {
@@ -20,11 +28,28 @@ ymaps.load().then(maps => {
 })
 .catch(error => console.log('Failed to load Yandex Maps', error));	
 
-var wheight = document.documentElement.clientHeight;
+// function setSectionHeight() {
+	var wheight = document.documentElement.clientHeight;
+	var section = document.querySelectorAll('section');
+	[].map.call(section, function(elem) {
+	  elem.style.height = wheight + 'px';
+	});	
+// };
 
-var section = document.querySelectorAll('section');
-[].map.call(section, function(elem) {
-  elem.style.height = wheight + 'px';
+// window.addEventlistener('DOMContentLoaded', setSectionHeight);
+// window.addEventlistener('resize', setSectionHeight);
+
+// var sliderContainer = document.querySelector('.swiper-container');
+
+var swiper = new Swiper('.swiper-container', {
+	speed: 500,
+	pagination: {
+		el: '.swiper-pagination',
+        clickable: true,
+	},
+	autoplay: {
+    	delay: 5000,
+    },
 });
 
 //  hover

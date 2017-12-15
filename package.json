@@ -13,6 +13,7 @@
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
+    "gsap": "^1.20.3",
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.2",
     "node-static": "^0.7.9",
@@ -28,6 +29,8 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "normalize.css": "^6.0.0",
+    "postcss-loader": "^2.0.9",
+    "swiper": "^4.0.7",
     "ymaps": "^0.1.1"
   }
 }
