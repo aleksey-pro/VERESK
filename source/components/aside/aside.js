@@ -1,10 +1,12 @@
 import './aside.scss';
 import 'normalize.css';
+import Animation from '../../libs/animate.js';
 
 var mainMenu = document.querySelector('.main-menu');
 var collapseTrigger = mainMenu.querySelector('.collapse-trigger');
 var menuCollapse = mainMenu.querySelector('.products-menu');
 var menuItem = mainMenu.querySelectorAll('.products-menu__item');
+
 
 for(var i = 0; i < menuItem.length; i++) {
 	menuItem[i].addEventListener('mouseover', function (e) {
@@ -24,6 +26,27 @@ collapseTrigger.addEventListener('click', function(e) {
 	e.preventDefault();
 	menuCollapse.classList.toggle('hidden');
 });
+
+ //scroll to section
+
+ function Scroll(elem, section) {
+	 elem.click(function() {
+	    var offset = 20; //Offset of 20px
+
+	    $('html, body').animate({
+	        scrollTop: section.offset().top + offset
+	    }, 1000);
+	});	
+ }
+
+ var mainLink = $('.main-menu__link[href = "index.html#main"]');
+ var aboutLink = $('.main-menu__link[href = "index.html#about"]');
+ var contactsLink = $('.main-menu__link[href = "index.html#contacts"]')
+
+Scroll(mainLink, $('#main'));
+Scroll(aboutLink, $('#about'));
+Scroll(contactsLink, $('#contacts'));
+
 
 
 

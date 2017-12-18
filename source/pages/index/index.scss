@@ -16,15 +16,10 @@
   }
 }
 
-section, footer {	
-	display: flex!important;
-	justify-content: flex-end;
-}
-
 .main__wrapper {
   position: relative;
   height: 100%;
-  width: 70vw;
+  width: 70.3vw;
 }
 
 // Slider 
@@ -60,23 +55,11 @@ section, footer {
 	position: relative;
 }
 
-.heading {
-	position: absolute;
-    top: 90px;
-    left: -6%;
-	display: block;
-	height: 114px;
-	width: 60vw;
-	color: #fff;
-	line-height: 114px;
-	font-size: 58.34px;
-	font-family: Olympia_Deco, Arial;
-	padding-left: 125px;
-	z-index: 100;
-	background: transparent url(./heading_flag.png) 0 0 no-repeat;
-}
-
 //about
+
+.heading--about {
+	top: 90px;
+}
 
 .about__text {
 	width: 70%;
@@ -93,11 +76,15 @@ section, footer {
 
 //contacts
 
+.heading--contacts {
+	top: 120px;
+}
+
 .collage {
 	background-size: contain;	
 	background: transparent url(./contacts_main.png) bottom center no-repeat;
 	height: 100%;	
-	margin-top: -180px;	
+	margin-top: -50px;	
 	position: relative;
 
 	.collage__book {

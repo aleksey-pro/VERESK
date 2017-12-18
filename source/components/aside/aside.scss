@@ -3,7 +3,7 @@ $blue: #0e0ab3;
 $light-blue: #6d75ff;
 $white: #fff;
 
-aside {
+.aside {
 	display: block;
 	position: fixed;
 	height: 100%;
@@ -13,7 +13,12 @@ aside {
 	bottom: 0;
 	// overflow: hidden;
 
-	background: #fff url('./menu_bg_1.jpg') 0 0 no-repeat;
+	background-color: #fff;
+	background-image: url('./menu_bg_3.jpg');
+	background-image: url('./menu_bg_2.jpg');
+	background-image: url('./menu_bg_1.jpg');
+	background-repeat: no-repeat;
+	background-position: 0 0;
 }
 
 .panel {

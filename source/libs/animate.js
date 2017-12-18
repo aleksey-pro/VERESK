@@ -1,21 +1,32 @@
-import gsap from "gsap";
+// import gsap from "gsap";
+import {TimelineMax, CSSPlugin, CSSRulePlugin} from "gsap";
+
 
 export default class Animation {
-	constructor() {
+	constructor() {		
 		this.tl1 = new TimelineMax();
+		this.tl2 = new TimelineMax();
 		this.tl1.pause();
+		this.tl2.pause();
+		this.elem = $('.heading--about');
+		this.elem2 = $('.heading--contacts');
+		this.elem3 = $('.aside');
 	}
 
 	description() {
-		this.tl1.from('.heading--about', 0.7, {
-			y: -100,
+		this.tl1.from(this.elem, 3, {
+			x: -100,
 			opacity: 0,
 			ease: Power4.easeOut
-		}
-, '+=0.3')
-		// 	.from('#path4297', 1,
-		// 	{drawSVG: "50% 50%"}, 0.2);
-
+		}, '+=0.3'),
+		this.tl1.to(this.elem3, 1, {
+			backgroundImage: "url('images/menu_bg_2.jpg')"
+		}),
+		this.tl2.from(this.elem2, 3, {
+			x: -100,
+			opacity: 0,
+			ease: Power4.easeOut
+		}, '+=0.3')
 	}
 
 	activeSection(section, startTop = 0, startBotton = 0) {
@@ -29,9 +40,10 @@ export default class Animation {
 	}
 
 	play() {
-		if (this.activeSection('#about', 1000, 1500)) {
-			console.log('active section');
+		if (this.activeSection('#about', 500, 800)) {
 			this.tl1.resume();
+		} else if (this.activeSection('#contacts', 500, 800)) {			
+			this.tl2.resume();
 		}
 	}
 }
