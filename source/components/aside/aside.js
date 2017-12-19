@@ -2,6 +2,7 @@ import './aside.scss';
 import 'normalize.css';
 import Animation from '../../libs/animate.js';
 
+
 var mainMenu = document.querySelector('.main-menu');
 var collapseTrigger = mainMenu.querySelector('.collapse-trigger');
 var menuCollapse = mainMenu.querySelector('.products-menu');
