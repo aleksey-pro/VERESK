@@ -29,10 +29,15 @@ section, footer {
 	display: flex!important;
 	justify-content: flex-end;
 }
+.main__wrapper, .section-wrapper, .products__wrapper {
+	-webkit-box-shadow: -10px 0px 20px -4px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    -10px 0px 20px -4px rgba(50, 50, 50, 1);
+	box-shadow:         -10px 0px 20px -4px rgba(50, 50, 50, 1);	
+}
 
 .heading {
 	position: absolute;    
-    left: -6%;
+    left: -5%;
 	display: block;
 	height: 114px;
 	width: 60vw;
@@ -43,4 +48,40 @@ section, footer {
 	padding-left: 125px;
 	z-index: 100;
 	background: transparent url(./heading_flag.png) 0 0 no-repeat;
+}
+
+// footer
+
+.footer {
+	background-color: #0e0ab3;
+	height: 115px;
+}
+
+.footer-wrapper {
+	position: relative;
+    width: 70.3vw;
+    box-shadow: none;
+}
+
+.footer__logo {
+	position: absolute;
+	right: 3%;
+	top: -10px;
+	bottom: 0;
+	background: transparent url(./footer_logo.png) 0 0 no-repeat;
+	height: 45px;
+	width: 113px;
+	margin: auto;
+	text-align: center;
+	span {
+		position: absolute;
+		bottom: -30px;
+		color: #fff;
+		font-size: 18px;
+	    font-family: 'Tinos', serif;
+	    text-transform: uppercase;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+	}
 }

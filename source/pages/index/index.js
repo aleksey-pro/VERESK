@@ -8,22 +8,10 @@ import ymaps from 'ymaps';
 import Swiper from 'swiper'; // http://idangero.us/swiper/api/
 import createMenu from '../../components/aside/aside';
 import Animation from '../../libs/animate.js';
+import MicroModal from 'micromodal';
 
 
 var anim = new Animation;
-
-$(window).ready(function() {
-  if (document.documentElement.clientWidth >= 1200) {
-    anim.description();
-    anim.play();
-  }
-});
-
-$(window).scroll(function () {
-  if (document.documentElement.clientWidth >= 1200) {
-    anim.play();
-  }
-});
 
 ymaps.load().then(maps => {
   const map = new maps.Map(document.getElementById("map"), {
@@ -40,14 +28,33 @@ ymaps.load().then(maps => {
 })
 .catch(error => console.log('Failed to load Yandex Maps', error));	
 
-(function setSectionHeight() {
+function setSectionHeight() {
   var wheight = document.documentElement.clientHeight;
   var section = document.querySelectorAll('section');
   [].map.call(section, function(elem) {
     elem.style.height = wheight + 'px';
   });
   return section;
-})();
+};
+
+$(window).ready(function() {
+  setSectionHeight();
+  MicroModal.init();
+  if (document.documentElement.clientWidth >= 1200) {
+    anim.description();
+    anim.play();
+  }
+});
+
+$(window).scroll(function () {
+  if (document.documentElement.clientWidth >= 1200) {
+    anim.play();
+  }
+});
+
+$(window).resize(function () {
+  setSectionHeight();
+});
 
 // window.addEventlistener('DOMContentLoaded', setSectionHeight);
 // window.addEventlistener('resize', setSectionHeight);
@@ -74,10 +81,17 @@ var swiper = new Swiper('.swiper-container', {
     otherImages.addClass('partners-tiles__image--active')
     thisImage.removeClass('partners-tiles__image--active');
   });
- 
-
 
   // $('.plant-links').on('mouseout', function() {
   //   var Images = $(this).find('.plant-link-image');
   //   Images.removeClass('plant-link-image--active');
   // });
+
+  // pop-up map
+ 
+
+// .cart-button
+  
+
+
+

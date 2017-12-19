@@ -98,12 +98,19 @@
 	}
 
 	.cart-button {
-		width: 70px;
+		width: 140px;
 		height: 63px;
-		background: transparent url(./scheme_btn.png) 0 0 no-repeat;
+		background: transparent url(./scheme_btn.png) 70px 0 no-repeat;
 		position: absolute;
 		bottom: 0;
 		right: 5%;
+		cursor: pointer;
+		span {
+		    position: relative;
+		    right: 40px;
+		    top: 30px;
+		    color: #015ef7;
+		}
 	}
 }
 
@@ -128,6 +135,7 @@
 	margin-left: 50px;
 	font-size: 20.2px;
 	margin-top: 50px;
+    width: 320px;
 
 	.contacts-par {
 		p {
@@ -142,7 +150,6 @@
 .contacts-form {
 	margin-top: 80px;
 	background: transparent url(./backform_bg.jpg) 0 0 no-repeat;
-	margin-left: 100px;
 	padding: 0 30px;
 	&__title {
 		text-align: center;
@@ -173,11 +180,10 @@
 			color: #fff;
 		}
 	}
-	input[type='submit'] {
+	button[type='submit'] {
 		background-color: #015ef7;
 		height: 20px;
-		line-height: 20px;
-		display: inline!important;		
+		line-height: 18px;
 		text-transform: uppercase;
 	}
 }
@@ -211,7 +217,7 @@
 	text-align: center;
 	font-family: Olympia_Deco, Arial;
 	font-size: 45.07px;	
-	margin: 30px 0;
+	margin: 15px 0;
 }
 
 #map {
@@ -268,36 +274,90 @@
 }
 
 
-// footer
+// modal 
 
-.footer {
-	background-color: #0e0ab3;
-	height: 115px;
+.modal__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 300;
 }
-
-.footer-wrapper {
+.modal__container {
+	overflow-y: auto;
 	position: relative;
 }
 
-.footer__logo {
+.modal__close {
 	position: absolute;
-	right: 3%;
-	top: 0;
-	bottom: 0;
-	background: transparent url(./footer_logo.png) 0 0 no-repeat;
-	height: 45px;
-	width: 113px;
-	margin: auto;
-	text-align: center;
-	span {
-		position: absolute;
-		bottom: -30px;
-		color: #fff;
-		font-size: 18px;
-	    font-family: 'Tinos', serif;
-	    text-transform: uppercase;
-	    left: 0;
-	    right: 0;
-	    margin: auto;
-	}
+	top: 1em;
+	right: 1em;
+}
+
+.modal__close:before {
+    content: "\2715";
+}
+
+.modal__content {
+	background: transparent url('./cart.jpg') 0 0 no-repeat;
+	background-size: cover;
+    width: 834px;
+    height: 784px;
+}
+
+// Modal Animation
+
+@keyframes mmfadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+
+@keyframes mmslideIn {
+  from { transform: translateY(15%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes mmslideOut {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10%); }
+}
+
+
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform;
 }

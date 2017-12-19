@@ -23,7 +23,6 @@ for(var i = 0; i < menuItem.length; i++) {
 }
 
 collapseTrigger.addEventListener('click', function(e) {
-	e.preventDefault();
 	menuCollapse.classList.toggle('hidden');
 });
 

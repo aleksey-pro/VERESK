@@ -22,7 +22,12 @@ block main
         |  ассортимент и качество нашей продукции, входящей в каталог "100 лучших товаров России" за 2005г.
       .about__image
   section#contacts
-    .section-wrapper        
+    #modal-1(aria-hidden="true").micromodal-slide
+      div(tabindex="-1" data-micromodal-close).modal__overlay
+        div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container   
+          #modal-1-content.modal__content
+          button(aria-label="Close modal" data-micromodal-close).modal__close
+    .section-wrapper       
       .heading.heading--contacts контакты
       .collage
         .collage__book
@@ -57,8 +62,9 @@ block main
                 input(type='text' name='text' placeholder='Имя')
                 input(type='email' name='email' placeholder='E-mail')
                 textarea(name="description", cols="30", rows="10" placeholder='Текст')
-                input(type='submit' value='Отправить' name='submit' placeholder='Отправить')
-        .cart-button            
+                button(type='submit' value='Отправить' name='submit') Отправить
+        .cart-button(data-micromodal-trigger="modal-1")
+          span  Схема проезда       
   section#partners
     .section-wrapper
       .title.contacts-title на карте
@@ -86,4 +92,4 @@ block main
   footer.footer
     .section-wrapper.footer-wrapper
       .footer__logo
-        span ооо вереск
+        span ооо вереск     
