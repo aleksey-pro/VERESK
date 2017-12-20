@@ -1,7 +1,8 @@
 [
-  {
-    vafli: [
-    {
+  {    
+    vafli: 
+    { titleHead: 'ВАФЛИ'},
+    [{
       index: '{{index()}}',
       url: './product{{index()}}.png',
       title: 'ВАФЛИ ВЕСОВЫЕ',
@@ -77,12 +78,12 @@
       before: 9,
       weight: 88.4,
       boxSize: '790х590х850'
-    }      
-     
+    } 
   ]},
   {
-    trubochki: [
-    {
+    trubochki: 
+    { titleHead: 'ВАФЕЛЬНЫЕ ТРУБОЧКИ'},
+    [{
       index: '{{index()}}',
       url: './product{{index()}}.png',
       title: 'ВАФЕЛЬНЫЕ ТРУБОЧКИ ВЕСОВЫЕ',
@@ -150,8 +151,10 @@
     }      
   ]},
   {
-    zamok: [
-    {
+    zamok: {
+      titleHead: 'ВАФЕЛЬНЫЕ ТОРТЫ "СТАРЫЙ ЗАМОК"'
+    },
+    [{
       index: '{{index()}}',
       url: './product{{index()}}.png',
       title: 'ТОРТЫ ВАФЕЛЬНЫЕ 210 и 220 г',
@@ -186,8 +189,9 @@
     }   
   ]},
   {
-    glazir: [
-    {
+    glazir: {
+      titleHead: 'ГЛАЗИРОВАННЫЕ ВАФЛИ И ВАФЕЛЬНЫЕ ТРУБОЧКИ'},
+    [{
       index: '{{index()}}',
       url: './product{{index()}}.png',
       title: 'ВАФЛИ ФАСОВАННЫЕ 210г',
@@ -266,8 +270,9 @@
     }     
   ]},
   {
-    diet: [
-    {
+    diet:
+    {titleHead: 'ПРОДУКЦИЯ ДЛЯ ДИЕТИЧЕСКОГО ПИТАНИЯ'},
+    [{
       index: '{{index()}}',
       url: './product{{index()}}.png',
       title: 'ВАФЛИ ФАСОВАННЫЕ 105 г на фруктозе и сорбите',
