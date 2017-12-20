@@ -21,11 +21,52 @@ for(var i = 0; i < menuItem.length; i++) {
 		var prodMenuLink = this.children[0];
 		prodMenuLink.style.color = '#000';
 	});
+	menuItem[i].addEventListener('click', function (e) {
+		e.stopPropagation();
+	});
 }
+
+var productsLink = document.getElementById('products');
+productsLink.addEventListener('click', function(e) {
+	e.preventDefault();
+});
+
+// Stop menu folding on category click
+
+var vafliLink = document.getElementById('vafli');
+var tubesLink = document.getElementById('tubes');
+var tortsLink = document.getElementById('torts');
+var dietsLink = document.getElementById('diets');
+
+vafliLink.addEventListener('click', function(e) {
+	// e.preventDefault();
+	e.stopPropagation();
+	// loadProduction(0);	
+});
+
+tubesLink.addEventListener('click', function(e) {
+ 	// e.preventDefault();
+ 	e.stopPropagation();
+ 	// loadProduction(1);
+});
+
+tortsLink.addEventListener('click', function(e) {
+ 	// e.preventDefault();
+ 	e.stopPropagation();
+ 	// loadProduction(2);
+});
+
+dietsLink.addEventListener('click', function(e) {
+ 	// e.preventDefault();
+ 	e.stopPropagation();
+ 	// loadProduction(4);
+});
 
 collapseTrigger.addEventListener('click', function(e) {
 	menuCollapse.classList.toggle('hidden');
 });
+
+
 
  //scroll to section
 
@@ -46,8 +87,6 @@ collapseTrigger.addEventListener('click', function(e) {
 Scroll(mainLink, $('#main'));
 Scroll(aboutLink, $('#about'));
 Scroll(contactsLink, $('#contacts'));
-
-
 
 
 

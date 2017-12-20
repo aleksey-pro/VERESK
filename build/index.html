@@ -22,27 +22,36 @@
       <div class="panel__title_sub">кондитерская фабрика</div>
     </div>
     <ul class="main-menu">
-      <li class="main-menu__item"> <a class="main-menu__link" href="#main">главная</a></li>
-      <li class="main-menu__item"><a class="main-menu__link" href="#about">о компании</a></li>
-      <li class="main-menu__item collapse-trigger"><a class="main-menu__link" href="#">продукция</a>
+      <li class="main-menu__item"> <a class="main-menu__link" href="index.html#main">главная</a></li>
+      <li class="main-menu__item"><a class="main-menu__link" href="index.html#about">о компании</a></li>
+      <li class="main-menu__item collapse-trigger"><a class="main-menu__link" href="#" id="products">продукция</a>
         <ul class="products-menu hidden">
-          <li class="products-menu__item"><a class="products-menu__link" href="#">вафли</a></li>
-          <li class="products-menu__item"><a class="products-menu__link" href="#">вафельные трубочки</a></li>
-          <li class="products-menu__item"><a class="products-menu__link" href="#">вафельные торты</a></li>
-          <li class="products-menu__item"><a class="products-menu__link" href="#">диетическое питание                                           </a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="products.html" id="vafli">вафли</a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="products.html" id="tubes">вафельные трубочки</a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="products.html" id="torts">вафельные торты</a></li>
+          <li class="products-menu__item"><a class="products-menu__link" href="products.html" id="diets">диетическое питание                                           </a></li>
         </ul>
       </li>
-      <li class="main-menu__item"><a class="main-menu__link" href="#contacts">контакты </a></li>
+      <li class="main-menu__item"><a class="main-menu__link" href="index.html#contacts">контакты</a></li>
       <li class="main-menu__item price"><a class="main-menu__link" href="./price.pdf">прайс-лист</a></li>
     </ul>
   </div>
 </aside>
-        <section id="main"> 
-          <div class="section-wrapper main-wrapper"></div>
+        <section id="main">
+          <div class="main__wrapper"> 
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide--first"></div>
+                <div class="swiper-slide swiper-slide--second"></div>
+                <div class="swiper-slide swiper-slide--third"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
         </section>
         <section id="about">
-          <div class="section-wrapper">       
-            <div class="heading heading--about">о компании     </div>
+          <div class="section-wrapper about-wrapper">       
+            <div class="heading heading--about">о компании  </div>
             <p class="about__text">
                Кондитерская фабрика ООО "Вереск" является одним из крупнейших производителей 
                вафельной продукции в Северо-Западном регионе. 
@@ -50,12 +59,87 @@
                и вафельных трубочек фирмы "FRANZ HAAS WAFFELMASHINEN INDUSTRIE AG" (Австрия) 
                и высокопроизводительного фасовочного оборудования, непрерывно совершенствуется 
                ассортимент и качество нашей продукции, входящей в каталог "100 лучших товаров России" за 2005г.
-            </p>
-            <div class="about__image"></div>
+            </p><img class="about-image" src="images/about_production.png" alt="Вереск">
           </div>
         </section>
-        <section id="contacts"></section>
-        <section id="partners"></section>
+        <section id="contacts">
+          <div class="micromodal-slide" id="modal-1" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">  
+                <div class="modal__content" id="modal-1-content"></div>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+              </div>
+            </div>
+          </div>
+          <div class="section-wrapper contacts-wrapper">      
+            <div class="heading heading--contacts">контакты</div><img class="collage" src="images/contacts_main.png" alt="Вереск">
+            <div class="collage__book">
+              <div class="contacts-data">
+                <div class="collage-photo"></div>
+                <div class="contacts-text">
+                  <div class="contacts-par">
+                    <p class="contacts-par_title">Наш адрес:</p>
+                    <p>188800 г.Выборг,<br>ул.Данилова д.15</p>
+                  </div>
+                  <div class="contacts-par">
+                    <p class="contacts-par_title">Отдел продаж: </p>
+                    <p>тел. (812) 740-22-79</p>
+                  </div>
+                  <div class="contacts-par">
+                    <p class="contacts-par_title">Отдел закупок:</p>
+                    <p>тел. (812) 740-22-79</p>
+                  </div>
+                  <div class="contacts-par">
+                    <p class="contacts-par_title">e-mail: </p>
+                    <p>office@veresk-vafli.ru</p>
+                  </div>
+                  <div class="contacts-par">
+                    <p class="contacts-par_title">Часы работы:</p>
+                    <p>Пн.-Пт.: 09.00-18.00 </p>
+                  </div>
+                </div>
+                <div class="contacts-form"> 
+                  <div class="contacts-form__title">обратная связь</div>
+                  <form class="contacts-form__form">
+                    <input type="text" name="text" placeholder="Имя">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <textarea name="description" cols="30" rows="10" placeholder="Текст"></textarea>
+                    <button type="submit" value="Отправить" name="submit">Отправить</button>
+                  </form>
+                </div>
+                <div class="contacts-gap"></div>
+              </div>
+            </div>
+            <div class="cart-button" data-micromodal-trigger="modal-1"><span> Схема проезда      </span></div>
+          </div>
+        </section>
+        <section id="partners">
+          <div class="section-wrapper partners-wrapper">
+            <div class="title contacts-title">на карте</div>
+            <div id="map"></div>
+            <div class="title partners-title">наши партнеры</div>
+            <div class="partners-tiles">
+              <div class="partners-tile partners-tile--left"><a class="partners-tiles__link" href="#">
+                  <div class="partners-tile__image">
+                    <div class="partners-tile__pointer"></div>
+                  </div></a>
+                <div class="partners-tile__desc">           <span>
+                     Официальный поставщик завода «Петербургский торговый дом».  <br>Надежный партнер на рынке.</span></div>
+              </div>
+              <div class="partners-tile partners-tile--right"><a class="partners-tiles__link" href="#">
+                  <div class="partners-tile__image">
+                    <div class="partners-tile__pointer"></div>
+                  </div></a>
+                <div class="partners-tile__desc">           <span>Завод хлебобулочныых изделей «Свирьхлеб».  <br>Качество и вкус проверенное и зарекомендававший себя. </span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <div class="section-wrapper footer-wrapper">
+            <div class="footer__logo"><span>ооо вереск     </span></div>
+          </div>
+        </footer>
       </div>
     <script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/index.js"></script></body>
   <link href="./css/common.css" rel="stylesheet"><link href="./css/index.css" rel="stylesheet"></head>

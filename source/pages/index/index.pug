@@ -11,7 +11,7 @@ block main
           .swiper-slide.swiper-slide--third
         .swiper-pagination
   section#about
-    .section-wrapper        
+    .section-wrapper.about-wrapper        
       .heading.heading--about о компании  
       p.about__text
         |  Кондитерская фабрика ООО "Вереск" является одним из крупнейших производителей 
@@ -20,53 +20,54 @@ block main
         |  и вафельных трубочек фирмы "FRANZ HAAS WAFFELMASHINEN INDUSTRIE AG" (Австрия) 
         |  и высокопроизводительного фасовочного оборудования, непрерывно совершенствуется 
         |  ассортимент и качество нашей продукции, входящей в каталог "100 лучших товаров России" за 2005г.
-      .about__image
+      img(src=require("./about_production.png") alt="Вереск").about-image
   section#contacts
     #modal-1(aria-hidden="true").micromodal-slide
       div(tabindex="-1" data-micromodal-close).modal__overlay
         div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container   
           #modal-1-content.modal__content
           button(aria-label="Close modal" data-micromodal-close).modal__close
-    .section-wrapper       
+    .section-wrapper.contacts-wrapper       
       .heading.heading--contacts контакты
-      .collage
-        .collage__book
-          .contacts-data
-            .collage-photo
-            .contacts-text
-              .contacts-par
-                p.contacts-par_title Наш адрес:
-                p
-                  | 188800 г.Выборг,
-                  br
-                  | ул.Данилова д.15
-              .contacts-par
-                p.contacts-par_title Отдел продаж: 
-                p
-                  | тел. (812) 740-22-79
-              .contacts-par
-                p.contacts-par_title Отдел закупок:
-                p
-                  | тел. (812) 740-22-79
-              .contacts-par
-                p.contacts-par_title e-mail: 
-                p
-                  | office@veresk-vafli.ru
-              .contacts-par
-                p.contacts-par_title Часы работы:
-                p
-                  | Пн.-Пт.: 09.00-18.00 
-            .contacts-form 
-              .contacts-form__title обратная связь
-              form.contacts-form__form
-                input(type='text' name='text' placeholder='Имя')
-                input(type='email' name='email' placeholder='E-mail')
-                textarea(name="description", cols="30", rows="10" placeholder='Текст')
-                button(type='submit' value='Отправить' name='submit') Отправить
-        .cart-button(data-micromodal-trigger="modal-1")
-          span  Схема проезда       
+      img(src=require("./contacts_main.png") alt="Вереск").collage
+      .collage__book
+        .contacts-data
+          .collage-photo
+          .contacts-text
+            .contacts-par
+              p.contacts-par_title Наш адрес:
+              p
+                | 188800 г.Выборг,
+                br
+                | ул.Данилова д.15
+            .contacts-par
+              p.contacts-par_title Отдел продаж: 
+              p
+                | тел. (812) 740-22-79
+            .contacts-par
+              p.contacts-par_title Отдел закупок:
+              p
+                | тел. (812) 740-22-79
+            .contacts-par
+              p.contacts-par_title e-mail: 
+              p
+                | office@veresk-vafli.ru
+            .contacts-par
+              p.contacts-par_title Часы работы:
+              p
+                | Пн.-Пт.: 09.00-18.00 
+          .contacts-form 
+            .contacts-form__title обратная связь
+            form.contacts-form__form
+              input(type='text' name='text' placeholder='Имя')
+              input(type='email' name='email' placeholder='E-mail')
+              textarea(name="description", cols="30", rows="10" placeholder='Текст')
+              button(type='submit' value='Отправить' name='submit') Отправить
+          .contacts-gap
+      .cart-button(data-micromodal-trigger="modal-1")
+        span  Схема проезда      
   section#partners
-    .section-wrapper
+    .section-wrapper.partners-wrapper
       .title.contacts-title на карте
       #map
       .title.partners-title наши партнеры
@@ -74,8 +75,8 @@ block main
         .partners-tile.partners-tile--left
           a(href='#').partners-tiles__link
             .partners-tile__image
-          .partners-tile__desc
-            .partners-tile__pointer
+              .partners-tile__pointer
+          .partners-tile__desc            
             span 
               | Официальный поставщик завода «Петербургский торговый дом».  
               br
@@ -83,8 +84,8 @@ block main
         .partners-tile.partners-tile--right
           a(href='#').partners-tiles__link
             .partners-tile__image
-          .partners-tile__desc
-            .partners-tile__pointer
+              .partners-tile__pointer
+          .partners-tile__desc            
             span
               | Завод хлебобулочныых изделей «Свирьхлеб».  
               br

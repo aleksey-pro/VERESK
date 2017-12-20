@@ -10,7 +10,6 @@ import createMenu from '../../components/aside/aside';
 import Animation from '../../libs/animate.js';
 import MicroModal from 'micromodal';
 
-
 var anim = new Animation;
 
 ymaps.load().then(maps => {
