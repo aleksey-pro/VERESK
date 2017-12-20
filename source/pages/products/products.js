@@ -59,7 +59,7 @@ var fillProducts = function (data, idx) {
  var vafliLink = document.getElementById('vafli');
  var tubesLink = document.getElementById('tubes');
  var tortsLink = document.getElementById('torts');
- var dietsLink = document.querySelector('diets');
+ var dietsLink = document.getElementById('diets');
 
  vafliLink.addEventListener('click', function(e) {
  	e.preventDefault();
