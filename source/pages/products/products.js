@@ -34,7 +34,7 @@ var renderProducts = function (item) {
 		product.querySelector('.desc-param__value--box').textContent = item.boxSize;
 		product.querySelector('.desc-param__value--fasovka').textContent = item.fasovka;
 		product.querySelector('.desc-param__value--numPerBox').textContent = item.numPerBox;
-		product.querySelector('img').src = 'images/' + item.url;
+		product.querySelector('img').src = 'images/' + item.url; 
 
   return product;
 };
@@ -45,7 +45,8 @@ var fillProducts = function (data, idx) {
     for(var keys in data[idx]) {
   	var category = data[idx][keys];
 		for(var u = 0; u < category.length; u++) {
-			var productsArr = category[u];			
+			var productsArr = category[u];	
+			console.log(productsArr);		
 			fragment.appendChild(renderProducts(productsArr));
 		}
   }
