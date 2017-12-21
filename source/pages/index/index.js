@@ -8,7 +8,7 @@ import ymaps from 'ymaps';
 import Swiper from 'swiper'; // http://idangero.us/swiper/api/
 import createMenu from '../../components/aside/aside';
 import Animation from '../../libs/animate.js';
-import MicroModal from 'micromodal';
+import MicroModal from 'micromodal'; //https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699
 
 var anim = new Animation;
 
@@ -55,10 +55,7 @@ $(window).resize(function () {
   setSectionHeight();
 });
 
-// window.addEventlistener('DOMContentLoaded', setSectionHeight);
-// window.addEventlistener('resize', setSectionHeight);
-
-// var sliderContainer = document.querySelector('.swiper-container');
+// Slider
 
 var swiper = new Swiper('.swiper-container', {
 	speed: 500,
@@ -80,17 +77,3 @@ var swiper = new Swiper('.swiper-container', {
     otherImages.addClass('partners-tiles__image--active')
     thisImage.removeClass('partners-tiles__image--active');
   });
-
-  // $('.plant-links').on('mouseout', function() {
-  //   var Images = $(this).find('.plant-link-image');
-  //   Images.removeClass('plant-link-image--active');
-  // });
-
-  // pop-up map
- 
-
-// .cart-button
-  
-
-
-

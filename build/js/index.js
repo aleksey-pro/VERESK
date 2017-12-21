@@ -7860,7 +7860,7 @@ function scroll(...args) {
  // http://idangero.us/swiper/api/
 
 
-
+ //https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699
 
 var anim = new __WEBPACK_IMPORTED_MODULE_8__libs_animate_js__["a" /* default */];
 

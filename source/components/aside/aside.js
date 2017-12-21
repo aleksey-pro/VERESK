@@ -39,27 +39,19 @@ var tortsLink = document.getElementById('torts');
 var dietsLink = document.getElementById('diets');
 
 vafliLink.addEventListener('click', function(e) {
-	// e.preventDefault();
-	e.stopPropagation();
-	// loadProduction(0);	
+	e.stopPropagation();	
 });
 
 tubesLink.addEventListener('click', function(e) {
- 	// e.preventDefault();
  	e.stopPropagation();
- 	// loadProduction(1);
 });
 
 tortsLink.addEventListener('click', function(e) {
- 	// e.preventDefault();
  	e.stopPropagation();
- 	// loadProduction(2);
 });
 
 dietsLink.addEventListener('click', function(e) {
- 	// e.preventDefault();
  	e.stopPropagation();
- 	// loadProduction(4);
 });
 
 collapseTrigger.addEventListener('click', function(e) {
@@ -80,9 +72,9 @@ collapseTrigger.addEventListener('click', function(e) {
 	});	
  }
 
- var mainLink = $('.main-menu__link[href = "index.html#main"]');
- var aboutLink = $('.main-menu__link[href = "index.html#about"]');
- var contactsLink = $('.main-menu__link[href = "index.html#contacts"]')
+var mainLink = $('.main-menu__link[href = "index.html#main"]');
+var aboutLink = $('.main-menu__link[href = "index.html#about"]');
+var contactsLink = $('.main-menu__link[href = "index.html#contacts"]');
 
 Scroll(mainLink, $('#main'));
 Scroll(aboutLink, $('#about'));
