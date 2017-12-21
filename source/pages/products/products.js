@@ -49,7 +49,7 @@ function loadProduction(idx) {
   });
 
   xhr.responseType = 'json';
-  xhr.open('GET', 'https://raw.githubusercontent.com/davegahn/VERESK/master/source/js/data.json');
+  xhr.open('GET', 'http://agropiter.com/data.json');
   xhr.send();
 };
 
