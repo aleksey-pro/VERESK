@@ -2,9 +2,12 @@ aside.aside
   .panel
     .panel__contact
       .panel__contact-email
-        | office@veresk-vafli.ru
+        |office
+        span @
+        |veresk-vafli.ru
       .panel__contact-phone
-        | (812) 740-22-79
+        span (812)
+        |  740-22-79
     .panel__logo
       img(src=require("./top_icon.png") alt="Вереск логотип")
     .panel__title
@@ -30,5 +33,5 @@ aside.aside
       li.main-menu__item
         a(href="index.html#contacts").main-menu__link контакты
       li.main-menu__item.price
-        a(href="./price.pdf").main-menu__link прайс-лист
+        a(href="./price.pdf" target='blank').main-menu__link прайс-лист
 

@@ -43,7 +43,7 @@ section, footer {
 	width: 60vw;
 	color: #fff;
 	line-height: 114px;
-	font-size: 58.34px;
+	font-size: 2.9vw;
 	font-family: Olympia_Deco, Arial;
 	padding-left: 125px;
 	z-index: 100;
@@ -59,8 +59,10 @@ section, footer {
 
 .footer-wrapper {
 	position: relative;
-    width: 70.3vw;
     box-shadow: none;
+    width: 75.3vw;
+    box-shadow: none;
+    background-color: #0e0ab3;
 }
 
 .footer__logo {

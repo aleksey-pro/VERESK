@@ -33,6 +33,13 @@ var fillProducts = function (data, idx) {
 		}
   }
   container.appendChild(fragment);
+
+  	// Correct width of product image
+
+	// var image = document.querySelector('.product-item__image');
+	// var linkValue = image.children[0].src.value;
+	// console.log(linkValue);
+	// image.children[0].style.height = '100%';
 };
 
 function loadProduction(idx) {
@@ -47,10 +54,13 @@ function loadProduction(idx) {
   xhr.addEventListener('error', function () {
     console.log(xhr.status + ' Произошла ошибка загрузки');
   });
+  xhr.addEventListener('loadend', function(){
+  	console.log('production has loaded'); // https://icons8.com/preloaders/en/circular
+  });
 
   xhr.responseType = 'json';
-  xhr.open('GET', 'http://agropiter.com/data.json');
-  xhr.send();
+  xhr.open('GET', 'https://raw.githubusercontent.com/davegahn/VERESK/master/source/js/data.json'); //http://agropiter.com/data.json
+  xhr.send(); // 
 };
 
 
@@ -68,12 +78,21 @@ $(document).ready(function() {
 		loadProduction(3);
 	}
 
-	// var event = new Event('click');
-	// vafliLink.addEventListener('click', function (e) { 
-	// 	loadProduction(0);
-	// }, false);
-	// vafliLink.dispatchEvent(event);
+	// trigger menu to open when page is loaded
+
+	var mainMenu = document.querySelector('.main-menu');
+	var collapseTrigger = mainMenu.querySelector('.collapse-trigger');
+	var menuCollapse = mainMenu.querySelector('.products-menu');
+	var event = new Event('loadClick');
+	collapseTrigger.addEventListener('loadClick', function (e) { 
+		menuCollapse.classList.remove('hidden');
+	}, false);
+	collapseTrigger.dispatchEvent(event);
+
 });
+
+
+
 
 var vafliLink = document.getElementById('vafli');
 var tubesLink = document.getElementById('tubes');

@@ -7907,10 +7907,7 @@ $(window).resize(function () {
   setSectionHeight();
 });
 
-// window.addEventlistener('DOMContentLoaded', setSectionHeight);
-// window.addEventlistener('resize', setSectionHeight);
-
-// var sliderContainer = document.querySelector('.swiper-container');
+// Slider
 
 var swiper = new __WEBPACK_IMPORTED_MODULE_6_swiper__["a" /* default */]('.swiper-container', {
 	speed: 500,
@@ -7932,20 +7929,6 @@ var swiper = new __WEBPACK_IMPORTED_MODULE_6_swiper__["a" /* default */]('.swipe
     otherImages.addClass('partners-tiles__image--active')
     thisImage.removeClass('partners-tiles__image--active');
   });
-
-  // $('.plant-links').on('mouseout', function() {
-  //   var Images = $(this).find('.plant-link-image');
-  //   Images.removeClass('plant-link-image--active');
-  // });
-
-  // pop-up map
- 
-
-// .cart-button
-  
-
-
-
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 

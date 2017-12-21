@@ -43,6 +43,19 @@ $(window).ready(function() {
     anim.description();
     anim.play();
   }
+
+  var imgs = $('.partners-tiles__image');
+
+  imgs.on('mouseenter', function(e) {
+  
+    console.log('imgs');
+    // var thisImage = $(this);
+    // var wrapper = thisImage.closest('.partners-tiles');
+    // var otherImages = wrapper.find('.partners-tiles__image');
+    // otherImages.addClass('partners-tiles__image--active')
+    // thisImage.removeClass('partners-tiles__image--active');
+  });
+
 });
 
 $(window).scroll(function () {
@@ -70,10 +83,13 @@ var swiper = new Swiper('.swiper-container', {
 
 //  hover
 
-  $('.partners-tiles__image').on('mouseenter mouseleave', function() {
-    var thisImage = $(this);
-    var wrapper = thisImage.closest('.partners-tiles');
-    var otherImages = wrapper.find('.partners-tiles__image');
-    otherImages.addClass('partners-tiles__image--active')
-    thisImage.removeClass('partners-tiles__image--active');
-  });
+// var images = document.querySelectorAll('.partners-tiles__image');
+
+// [].forEach.call(images, function(el){
+//   el.addEventListener('hover', function(e){
+//     e.preventDefault();
+//     console.log(this);
+//   })
+// });
+
+
