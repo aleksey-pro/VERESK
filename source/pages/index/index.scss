@@ -46,15 +46,15 @@
 }
 
 .swiper-slide--first {
-	background: #fff url(./slider-1.jpg) 0 0 no-repeat;
+	background: #fff url(./slider-1.jpg) left bottom no-repeat;
 	background-size: cover;
 }
 .swiper-slide--second {
-	background: #fff url(./slider-2.jpg) 0 0 no-repeat;
+	background: #fff url(./slider-2.jpg) left bottom no-repeat;
 	background-size: cover;
 }
 .swiper-slide--third {
-	background: #fff url(./slider-3.jpg) 0 0 no-repeat;
+	background: #fff url(./slider-3.jpg) left bottom no-repeat;
 	background-size: cover;
 }
 
@@ -140,6 +140,10 @@
 	    right: 40px;
 	    top: 30px;
 	    color: #015ef7;
+	    transition: all 0.1s ease-in;
+	    &:hover {
+	    	color: #000;
+	    }
 	}
 }
 
@@ -200,6 +204,7 @@
 	    color: #000;
 	}
 	input, textarea {
+		resize: none;
 		padding: 3px 0 3px 25px;
 		background-color: rgba(#fff, 0.5);
 		background-repeat: no-repeat;
@@ -309,93 +314,4 @@
 		}
 
 	}
-}
-
-
-// modal 
-
-.modal__overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0,0,0,0.6);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 300;
-}
-.modal__container {
-	overflow-y: auto;
-	position: relative;
-}
-
-.modal__close {
-	position: absolute;
-	top: 1em;
-	right: 1em;
-}
-
-.modal__close:before {
-    content: "\2715";
-}
-
-.modal__content {
-	background: transparent url('./cart.jpg') 0 0 no-repeat;
-	background-size: cover;
-    width: 834px;
-    height: 784px;
-}
-
-// Modal Animation
-
-@keyframes mmfadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
-}
-
-@keyframes mmfadeOut {
-    from { opacity: 1; }
-      to { opacity: 0; }
-}
-
-@keyframes mmslideIn {
-  from { transform: translateY(15%); }
-    to { transform: translateY(0); }
-}
-
-@keyframes mmslideOut {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10%); }
-}
-
-
-.micromodal-slide {
-  display: none;
-}
-
-.micromodal-slide.is-open {
-  display: block;
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
-}
-
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
-  will-change: transform;
 }

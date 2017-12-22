@@ -7,9 +7,18 @@ html
     meta(name="description", content="Вереск кондитерская продукция")
     meta(name="keywords", content="вереск кондитерская продукция")
     meta(name="author", content="Aleksey Isaev")
+    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
     title
       block title
     body      
       .wrapper
         include ../components/aside/aside
         block main
+        #modal-2(aria-hidden="true").micromodal-slide
+          div(tabindex="-1" data-micromodal-close).modal__overlay
+            div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container
+              #modal-1-content.modal__content
+                a(href='./price.pdf' download).modal-2-button.modal-2-button--xls
+                  span PDF
+                a(href='./price.xls' download).modal-2-button.modal-2-button--pdf
+                  span XLS

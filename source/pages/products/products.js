@@ -55,12 +55,14 @@ function loadProduction(idx) {
     console.log(xhr.status + ' Произошла ошибка загрузки');
   });
   xhr.addEventListener('loadend', function(){
+  	var loaderBlock = document.querySelector('.loader');
+  	loaderBlock.setAttrbute('hidden');
   	console.log('production has loaded'); // https://icons8.com/preloaders/en/circular
   });
 
   xhr.responseType = 'json';
-  xhr.open('GET', 'https://raw.githubusercontent.com/davegahn/VERESK/master/source/js/data.json'); //http://agropiter.com/data.json
-  xhr.send(); // 
+  xhr.open('GET', 'http://agropiter.com/data.json'); //
+  xhr.send(); // https://raw.githubusercontent.com/davegahn/VERESK/master/source/js/data.json
 };
 
 

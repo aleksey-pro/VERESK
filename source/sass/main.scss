@@ -87,3 +87,131 @@ section, footer {
 	    margin: auto;
 	}
 }
+
+
+// modal 
+
+.modal__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 3000;
+}
+.modal__container {
+	overflow-y: auto;
+	position: relative;
+}
+
+.modal__close {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+.modal__close:before {
+    content: "\2715";
+}
+
+#modal-1 {
+	.modal__content {
+		background: transparent url('./cart.jpg') 0 0 no-repeat;
+		background-size: cover;
+	    width: 834px;
+	    height: 784px;
+	}
+}
+
+#modal-2 {
+	.modal__content {
+	    width: 20vw;
+	    height: 10vh;
+	    background-color: #fff;
+	    display: block;
+	    border-radius: 10px;
+	    border: 1px solid blue;
+	    display: flex;
+	}
+	.modal-2-button {
+		width: 50%;	
+		margin: 1.5em;
+		border-radius: 5px;
+		color: #fff;
+		text-decoration: none;
+		font-size: 1.2em;
+	    transition: all 0.3s ease-in;
+        display: flex;
+	    align-items: center;
+	    justify-content: center;
+	}
+	.modal-2-button--xls {
+		background-color: #008000;
+	}
+	.modal-2-button--xls:hover {
+		background-color: darken(#008000, 20%);
+	}
+	.modal-2-button--pdf {
+		background-color: #ff0000;
+	}
+	.modal-2-button--pdf:hover {
+		background-color: darken(#ff0000, 20%);
+	}
+}
+
+
+// Modal Animation
+
+@keyframes mmfadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+
+@keyframes mmslideIn {
+  from { transform: translateY(15%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes mmslideOut {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10%); }
+}
+
+
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform;
+}

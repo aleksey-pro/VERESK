@@ -5,19 +5,14 @@ webpackJsonp([0],[
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 7 */,
-/* 8 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 8 */,
 /* 9 */
 /***/ (function(module, exports) {
 
@@ -25,11 +20,9 @@ webpackJsonp([0],[
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-var version="0.2.1",classCallCheck=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},createClass=function(){function e(e,t){for(var o=0;o<t.length;o++){var n=t[o];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,o,n){return o&&e(t.prototype,o),n&&e(t,n),t}}(),toConsumableArray=function(e){if(Array.isArray(e)){for(var t=0,o=Array(e.length);t<e.length;t++)o[t]=e[t];return o}return Array.from(e)},MicroModal=function(){var e=["a[href]","area[href]",'input:not([disabled]):not([type="hidden"])',"select:not([disabled])","textarea:not([disabled])","button:not([disabled])","iframe","object","embed","[contenteditable]",'[tabindex]:not([tabindex^="-"])'],t=function(){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},o=e.targetModal,n=e.triggers,i=void 0===n?[]:n,a=e.disableScroll,r=void 0!==a&&a,l=(e.debugMode,e.onShow),s=void 0===l?function(){}:l,c=e.onClose,d=void 0===c?function(){}:c;classCallCheck(this,t),this.modal=document.getElementById(o),i.length>0&&this.registerTriggers.apply(this,toConsumableArray(i)),this.disableScroll=r,this.callbacks={onShow:s,onClose:d},this.onClick=this.onClick.bind(this),this.onKeydown=this.onKeydown.bind(this)}return createClass(t,[{key:"registerTriggers",value:function(){for(var e=this,t=arguments.length,o=Array(t),n=0;n<t;n++)o[n]=arguments[n];o.forEach(function(t){t.addEventListener("click",function(){return e.showModal()})})}},{key:"showModal",value:function(){var e=this;this.activeElement=document.activeElement,this.modal.setAttribute("aria-hidden","false"),window.requestAnimationFrame(function(){e.modal.classList.add("is-open"),e.setFocusToFirstNode()}),this.scrollBehaviour("disable"),this.addEventListeners(),this.callbacks.onShow(this.modal)}},{key:"closeModal",value:function(){var e=this.modal;this.modal.addEventListener("animationend",function t(){window.requestAnimationFrame(function(){return e.classList.remove("is-open")}),e.removeEventListener("animationend",t,!1)},!1),this.modal.setAttribute("aria-hidden","true"),this.removeEventListeners(),this.scrollBehaviour("enable"),this.activeElement.focus(),this.callbacks.onClose(this.modal)}},{key:"scrollBehaviour",value:function(e){if(!1!==this.disableScroll){var t=document.querySelector("body");switch(e){case"enable":Object.assign(t.style,{overflow:"initial",height:"initial"});break;case"disable":Object.assign(t.style,{overflow:"hidden",height:"100vh"})}}}},{key:"addEventListeners",value:function(){this.modal.addEventListener("touchstart",this.onClick),this.modal.addEventListener("click",this.onClick),document.addEventListener("keydown",this.onKeydown)}},{key:"removeEventListeners",value:function(){this.modal.removeEventListener("touchstart",this.onClick),this.modal.removeEventListener("click",this.onClick),document.removeEventListener("keydown",this.onKeydown)}},{key:"onClick",value:function(e){e.target.hasAttribute("data-micromodal-close")&&(this.closeModal(),e.preventDefault())}},{key:"onKeydown",value:function(e){27===e.keyCode&&this.closeModal(e),9===e.keyCode&&this.maintainFocus(e)}},{key:"getFocusableNodes",value:function(){var t=this.modal.querySelectorAll(e);return Object.keys(t).map(function(e){return t[e]})}},{key:"setFocusToFirstNode",value:function(){var e=this.getFocusableNodes();e.length&&e[0].focus()}},{key:"maintainFocus",value:function(e){var t=this.getFocusableNodes(),o=t.indexOf(document.activeElement);e.shiftKey&&0===o&&(t[t.length-1].focus(),e.preventDefault()),e.shiftKey||o!==t.length-1||(t[0].focus(),e.preventDefault())}}]),t}(),o=function(e){var t=[];return e.forEach(function(e){var o=e.dataset.micromodalTrigger;void 0===t[o]&&(t[o]=[]),t[o].push(e)}),t},n=function(e){if(!document.getElementById(e))return console.warn("MicroModal v"+version+": ❗Seems like you have missed %c'"+e+"'","background-color: #f8f9fa;color: #50596c;font-weight: bold;","ID somewhere in your code. Refer example below to resolve it."),console.warn("%cExample:","background-color: #f8f9fa;color: #50596c;font-weight: bold;",'<div class="modal" id="'+e+'"></div>'),!1},i=function(e){if(e.length<=0)return console.warn("MicroModal v"+version+": ❗Please specify at least one %c'micromodal-trigger'","background-color: #f8f9fa;color: #50596c;font-weight: bold;","data attribute."),console.warn("%cExample:","background-color: #f8f9fa;color: #50596c;font-weight: bold;",'<a href="#" data-micromodal-trigger="my-modal"></a>'),!1},a=function(e,t){if(i(e),!t)return!0;for(var o in t)n(o);return!0},r=null;return{init:function(e){var n=e||{},i=[].concat(toConsumableArray(document.querySelectorAll("[data-micromodal-trigger]"))),r=o(i);if(!0!==n.debugMode||!1!==a(i,r))for(var l in r){var s=r[l];n.targetModal=l,n.triggers=[].concat(toConsumableArray(s)),new t(n)}},show:function(e,o){var i=o||{};i.targetModal=e,!0===i.debugMode&&!1===n(e)||(r=new t(i)).showModal()},close:function(){r.closeModal()}}}();/* harmony default export */ __webpack_exports__["a"] = (MicroModal);
-
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 11 */
@@ -6402,7 +6395,7 @@ exports.default = {
     return this.promise;
   }
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
 /* 13 */
@@ -7836,11 +7829,11 @@ function scroll(...args) {
 /* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_main_scss__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_main_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sass_main_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sass_vars_scss__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sass_vars_scss__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sass_vars_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sass_vars_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sass_swiper_css__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sass_swiper_css__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sass_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sass_swiper_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__index_scss__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__index_scss__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__index_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_normalize_css__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_normalize_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_normalize_css__);
@@ -7848,8 +7841,8 @@ function scroll(...args) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ymaps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ymaps__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_swiper__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_aside_aside__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__libs_animate_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_micromodal__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__libs_animate_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_micromodal__ = __webpack_require__(4);
 
 
 
@@ -7870,7 +7863,7 @@ __WEBPACK_IMPORTED_MODULE_5_ymaps___default.a.load().then(maps => {
     zoom: 14
   });
   map.behaviors.disable('scrollZoom');
-  const Placemark = new maps.Placemark([60.697932, 28.766090], { 
+  const Placemark = new maps.Placemark([60.699, 28.752], { 
     hintContent: 'Вереск!', 
     balloonContent: '' 
   });
@@ -7895,6 +7888,19 @@ $(window).ready(function() {
     anim.description();
     anim.play();
   }
+
+  var imgs = $('.partners-tiles__image');
+
+  imgs.on('mouseenter', function(e) {
+  
+    console.log('imgs');
+    // var thisImage = $(this);
+    // var wrapper = thisImage.closest('.partners-tiles');
+    // var otherImages = wrapper.find('.partners-tiles__image');
+    // otherImages.addClass('partners-tiles__image--active')
+    // thisImage.removeClass('partners-tiles__image--active');
+  });
+
 });
 
 $(window).scroll(function () {
@@ -7922,13 +7928,16 @@ var swiper = new __WEBPACK_IMPORTED_MODULE_6_swiper__["a" /* default */]('.swipe
 
 //  hover
 
-  $('.partners-tiles__image').on('mouseenter mouseleave', function() {
-    var thisImage = $(this);
-    var wrapper = thisImage.closest('.partners-tiles');
-    var otherImages = wrapper.find('.partners-tiles__image');
-    otherImages.addClass('partners-tiles__image--active')
-    thisImage.removeClass('partners-tiles__image--active');
-  });
+// var images = document.querySelectorAll('.partners-tiles__image');
+
+// [].forEach.call(images, function(el){
+//   el.addEventListener('hover', function(e){
+//     e.preventDefault();
+//     console.log(this);
+//   })
+// });
+
+
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 

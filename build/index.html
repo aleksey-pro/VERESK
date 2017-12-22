@@ -7,6 +7,7 @@
     <meta name="description" content="Вереск кондитерская продукция">
     <meta name="keywords" content="вереск кондитерская продукция">
     <meta name="author" content="Aleksey Isaev">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Вереск
     </title>
     <body>     
@@ -14,8 +15,8 @@
 <aside class="aside">
   <div class="panel">
     <div class="panel__contact">
-      <div class="panel__contact-email">office@veresk-vafli.ru</div>
-      <div class="panel__contact-phone">(812) 740-22-79</div>
+      <div class="panel__contact-email">office<span>@</span>veresk-vafli.ru</div>
+      <div class="panel__contact-phone"><span>(812)</span> 740-22-79</div>
     </div>
     <div class="panel__logo"><img src="images/top_icon.png" alt="Вереск логотип"></div>
     <div class="panel__title">Вереск
@@ -33,7 +34,7 @@
         </ul>
       </li>
       <li class="main-menu__item"><a class="main-menu__link" href="index.html#contacts">контакты</a></li>
-      <li class="main-menu__item price"><a class="main-menu__link" href="./price.pdf" target="blank">прайс-лист</a></li>
+      <li class="main-menu__item price"><a class="main-menu__link" href="#" data-micromodal-trigger="modal-2">прайс-лист</a></li>
     </ul>
   </div>
 </aside>
@@ -65,7 +66,7 @@
         <section id="contacts">
           <div class="micromodal-slide" id="modal-1" aria-hidden="true">
             <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">  
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
                 <div class="modal__content" id="modal-1-content"></div>
                 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
               </div>
@@ -119,14 +120,14 @@
             <div id="map"></div>
             <div class="title partners-title">наши партнеры</div>
             <div class="partners-tiles">
-              <div class="partners-tile partners-tile--left"><a class="partners-tiles__link" href="http://www.ptd.spb.ru">
+              <div class="partners-tile partners-tile--left"><a class="partners-tiles__link" href="http://www.ptd.spb.ru" target="blank">
                   <div class="partners-tile__image">
                     <div class="partners-tile__pointer"></div>
                   </div></a>
                 <div class="partners-tile__desc">           <span>
                      Официальный поставщик завода «Петербургский торговый дом».  <br>Надежный партнер на рынке.</span></div>
               </div>
-              <div class="partners-tile partners-tile--right"><a class="partners-tiles__link" href="http://www.svirhleb.ru/">
+              <div class="partners-tile partners-tile--right"><a class="partners-tiles__link" href="http://www.svirhleb.ru/" target="blank">
                   <div class="partners-tile__image">
                     <div class="partners-tile__pointer"></div>
                   </div></a>
@@ -140,6 +141,13 @@
             <div class="footer__logo"><span>ооо вереск     </span></div>
           </div>
         </footer>
+        <div class="micromodal-slide" id="modal-2" aria-hidden="true">
+          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+              <div class="modal__content" id="modal-1-content"><a class="modal-2-button modal-2-button--xls" href="./price.pdf" download><span>PDF</span></a><a class="modal-2-button modal-2-button--pdf" href="./price.xls" download><span>XLS</span></a></div>
+            </div>
+          </div>
+        </div>
       </div>
     <script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/index.js"></script></body>
   <link href="./css/common.css" rel="stylesheet"><link href="./css/index.css" rel="stylesheet"></head>

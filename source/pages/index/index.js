@@ -18,7 +18,7 @@ ymaps.load().then(maps => {
     zoom: 14
   });
   map.behaviors.disable('scrollZoom');
-  const Placemark = new maps.Placemark([60.697932, 28.766090], { 
+  const Placemark = new maps.Placemark([60.699, 28.752], { 
     hintContent: 'Вереск!', 
     balloonContent: '' 
   });

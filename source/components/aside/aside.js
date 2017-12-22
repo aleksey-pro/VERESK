@@ -1,6 +1,7 @@
 import './aside.scss';
 import 'normalize.css';
 import Animation from '../../libs/animate.js';
+import MicroModal from 'micromodal';
 
 
 var mainMenu = document.querySelector('.main-menu');
