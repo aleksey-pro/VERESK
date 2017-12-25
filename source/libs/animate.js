@@ -10,7 +10,6 @@ export default class Animation {
 		this.tl2.pause();
 		this.elem = $('.heading--about');
 		this.elem2 = $('.heading--contacts');
-		this.elem3 = $('.aside');
 	}
 
 	description() {
@@ -23,13 +22,7 @@ export default class Animation {
 			x: -100,
 			opacity: 0,
 			ease: Power4.easeOut
-		}, '+=0.3'),
-		this.tl1.to(this.elem3, 1, {
-			backgroundImage: "url('images/menu_bg_2.jpg')"
-		}),
-		this.tl2.to(this.elem3, 1, {
-			backgroundImage: "url('images/menu_bg_3.jpg')"
-		})
+		}, '+=0.3')
 	}
 
 	activeSection(section, startTop = 0, startBotton = 0) {
@@ -44,10 +37,8 @@ export default class Animation {
 
 	play() {
 		if (this.activeSection('#main', 500, 800)) {
-			console.log('tl1 activated');
 			this.tl1.resume();
-		} else if (this.activeSection('#about', 500, 800)) {
-			console.log('tl2 activated');			
+		} else if (this.activeSection('#about', 500, 800)) {	
 			this.tl2.resume();
 		}
 	}

@@ -4,7 +4,6 @@ $light-blue: #6d75ff;
 $white: #fff;
 
 .aside {
-	display: block;
 	position: fixed;
 	height: 100%;
 	width: 28.7vw;
@@ -13,9 +12,7 @@ $white: #fff;
 	bottom: 0;
 
 	background-color: #fff;
-	// background-image: url('./menu_bg_3.jpg');
-	// background-image: url('./menu_bg_2.jpg');
-	background-image: url('./menu_bg_1.jpg'), url('./menu_bg_2.jpg'), url('./menu_bg_3.jpg');
+	background-image: url('./menu_bg_1.jpg');
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: cover;

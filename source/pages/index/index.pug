@@ -84,24 +84,22 @@ block main
       #map
       .title.partners-title наши партнеры
       .partners-tiles
-        .partners-tile.partners-tile--left
-          a(href='http://www.ptd.spb.ru' target='blank').partners-tiles__link
-            .partners-tile__image
-              .partners-tile__pointer
-          .partners-tile__desc            
+        a(href='http://www.ptd.spb.ru' target='blank').partners-tiles__link
+          img(src=require('./ptd_link.jpg')).partners-tile__image          
+          .partners-tile__desc 
+            .partners-tile__pointer          
             span 
-              | Официальный поставщик завода «Петербургский торговый дом».  
+              | Официальный поставщик завода «Петербургский торговый дом»  
               br
-              | Надежный партнер на рынке.
-        .partners-tile.partners-tile--right
-          a(href='http://www.svirhleb.ru/' target='blank').partners-tiles__link
-            .partners-tile__image
-              .partners-tile__pointer
-          .partners-tile__desc            
+              | Надежный партнер на рынке
+        a(href='http://www.svirhleb.ru' target='blank').partners-tiles__link
+          img(src=require('./svir_link.jpg')).partners-tile__image          
+          .partners-tile__desc 
+            .partners-tile__pointer        
             span
-              | Завод хлебобулочныых изделей «Свирьхлеб».  
+              | Завод хлебобулочныых изделей «Свирьхлеб»  
               br
-              | Качество и вкус проверенное и зарекомендававший себя. 
+              | Качество и вкус проверенное временем
   footer.footer
     .section-wrapper.footer-wrapper
       .footer__logo

@@ -55,9 +55,8 @@ function loadProduction(idx) {
     console.log(xhr.status + ' Произошла ошибка загрузки');
   });
   xhr.addEventListener('loadend', function(){
-  	var loaderBlock = document.querySelector('.loader');
-  	loaderBlock.setAttrbute('hidden');
-  	console.log('production has loaded'); // https://icons8.com/preloaders/en/circular
+  	var loaderBlock = document.querySelector('.loader'); // https://icons8.com/preloaders/en/circular
+  	loaderBlock.setAttribute('hidden', 'hidden');
   });
 
   xhr.responseType = 'json';
@@ -66,9 +65,17 @@ function loadProduction(idx) {
 };
 
 
-// Load Products
+
 
 $(document).ready(function() {
+
+	// Set backgroundImage
+
+	var leftImage = document.querySelector('.aside');
+	leftImage.style.backgroundImage = 'url(images/menu_bg_3.jpg)';
+
+	// Load Products
+
 	var hash = window.location.hash;
 	if(hash === '#vafli') {
 		loadProduction(0);
@@ -90,10 +97,7 @@ $(document).ready(function() {
 		menuCollapse.classList.remove('hidden');
 	}, false);
 	collapseTrigger.dispatchEvent(event);
-
 });
-
-
 
 
 var vafliLink = document.getElementById('vafli');
