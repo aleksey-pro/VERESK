@@ -56,7 +56,7 @@ dietsLink.addEventListener('click', function(e) {
 });
 
 collapseTrigger.addEventListener('click', function(e) {
-	menuCollapse.classList.toggle('hidden');
+	$(menuCollapse).slideToggle(500);
 });
 
 

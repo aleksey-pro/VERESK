@@ -10485,7 +10485,7 @@ dietsLink.addEventListener('click', function(e) {
 });
 
 collapseTrigger.addEventListener('click', function(e) {
-	menuCollapse.classList.toggle('hidden');
+	$(menuCollapse).slideToggle(500);
 });
 
 
@@ -10569,14 +10569,17 @@ class Animation {
 			opacity: 0,
 			ease: Power4.easeOut
 		}, '+=0.3'),
-		this.tl1.to(this.elem3, 1, {
-			backgroundImage: "url('images/menu_bg_2.jpg')"
-		}),
 		this.tl2.from(this.elem2, 3, {
 			x: -100,
 			opacity: 0,
 			ease: Power4.easeOut
-		}, '+=0.3')
+		}, '+=0.3'),
+		this.tl1.to(this.elem3, 1, {
+			backgroundImage: "url('images/menu_bg_2.jpg')"
+		}),
+		this.tl2.to(this.elem3, 1, {
+			backgroundImage: "url('images/menu_bg_3.jpg')"
+		})
 	}
 
 	activeSection(section, startTop = 0, startBotton = 0) {
@@ -10590,9 +10593,11 @@ class Animation {
 	}
 
 	play() {
-		if (this.activeSection('#about', 500, 800)) {
+		if (this.activeSection('#main', 500, 800)) {
+			console.log('tl1 activated');
 			this.tl1.resume();
-		} else if (this.activeSection('#contacts', 500, 800)) {			
+		} else if (this.activeSection('#about', 500, 800)) {
+			console.log('tl2 activated');			
 			this.tl2.resume();
 		}
 	}

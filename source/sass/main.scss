@@ -164,6 +164,29 @@ section, footer {
 }
 
 
+#modal-3 {
+	.modal__content {
+    	text-align: center;
+	    width: 45vw;
+    	height: 50vh;
+	    background: #fff url(./send_bg.jpg) center center no-repeat;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: space-around;
+
+	    .modal__dialog {
+	    	font-size: 37.47px;
+
+		    &-title {
+				color: #0e0ab3;
+				font-size: 50px;
+		    }
+	    }
+
+	}
+}
+
 // Modal Animation
 
 @keyframes mmfadeIn {

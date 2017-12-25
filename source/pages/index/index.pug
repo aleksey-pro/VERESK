@@ -27,6 +27,18 @@ block main
         div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container
           #modal-1-content.modal__content
           button(aria-label="Close modal" data-micromodal-close).modal__close
+    #modal-3(aria-hidden="true").micromodal-slide
+      div(tabindex="-1" data-micromodal-close).modal__overlay
+        div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container
+          #modal-3-content.modal__content
+            .modal__company-logo
+              img(src=require('./footer_logo.png') alt='Письмо выслано')         
+            .modal__dialog
+              .modal__dialog-title Cпасибо!
+              | Ваша заявка принята!
+            .modal__send-image
+              img(src=require('./send_logo.png') alt='Письмо выслано')
+          button(aria-label="Close modal" data-micromodal-close).modal__close
     .section-wrapper.contacts-wrapper       
       .heading.heading--contacts контакты
       img(src=require("./contacts_main.png") alt="Вереск").collage
@@ -59,9 +71,9 @@ block main
           .contacts-form 
             .contacts-form__title обратная связь
             form.contacts-form__form
-              input(type='text' name='text' placeholder='Имя')
-              input(type='email' name='email' placeholder='E-mail')
-              textarea(name="description", cols="25", rows="9" placeholder='Текст')
+              input(type='text' name='name' placeholder='Имя' required)
+              input(type='phone' name='phone' placeholder='Телефон' required)
+              textarea(name="mess", cols="25", rows="9" placeholder='Текст')
               button(type='submit' value='Отправить' name='submit') Отправить
           .contacts-gap
       .cart-button(data-micromodal-trigger="modal-1")

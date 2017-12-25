@@ -1,7 +1,7 @@
 <?php
 // Файлы phpmailer
-require 'source/PHPMailer/class.phpmailer.php';
-require 'source/PHPMailer/class.smtp.php';
+require 'lib/class.phpmailer.php';
+require 'lib/class.smtp.php';
 
 // Настройки
 $mail = new PHPMailer;
@@ -23,7 +23,7 @@ $mail->addAddress('ptd@fgr.ru'); // Email получателя
 
 // Письмо
 $mail->isHTML(true);
-$mail->Subject = "Сообщение с сайта ptd.spb.ru"; // Заголовок письма
+$mail->Subject = "Сообщение с сайта veresk-vafli.ru"; // Заголовок письма
 
 $mail->Body = "Имя: {$_POST['name']}<br> Email: {$_POST['email']}<br> Телефон: {$_POST['phone']}<br> Сообщение: " . nl2br($_POST['mess']);
 

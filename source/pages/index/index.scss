@@ -218,6 +218,11 @@
 		height: 20px;
 		line-height: 18px;
 		text-transform: uppercase;
+		transition: all 0.2s ease-in-out;
+		&:hover {
+			cursor: pointer;
+			background-color: lighten(#015ef7, 10%);
+		}
 	}
 }
 
@@ -229,7 +234,7 @@
 		background-position: 3% center;
 	}
 
-	input[type='email'] {
+	input[type='phone'] {
 		height: 25px;
 		line-height: 25px;
 		background-image: url(./form_mail.png);

@@ -7938,6 +7938,39 @@ var swiper = new __WEBPACK_IMPORTED_MODULE_6_swiper__["a" /* default */]('.swipe
 // });
 
 
+// sendmail
+
+const ENTER_KEYCODE = 13;
+const form = document.querySelector('.contacts-form__form');
+
+
+function sendMail(data) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('loadend', function () {
+    if (xhr.status === 200) {
+      __WEBPACK_IMPORTED_MODULE_9_micromodal__["a" /* default */].show('modal-3');
+      form.reset;
+    } else {
+      alert('Ошибка при отправке' + xhr.status);
+    }
+  });
+
+  xhr.open('POST', 'send.php');
+  xhr.send(data);
+};
+
+form.addEventListener('submit', function (evt) {
+  var formData = new FormData(form);
+  sendMail(formData);
+  evt.preventDefault();
+  if (evt.which === ENTER_KEYCODE) {
+    evt.preventDefault();
+  }  
+});
+
+
+
+
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 

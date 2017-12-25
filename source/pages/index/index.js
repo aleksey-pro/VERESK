@@ -93,3 +93,36 @@ var swiper = new Swiper('.swiper-container', {
 // });
 
 
+// sendmail
+
+const ENTER_KEYCODE = 13;
+const form = document.querySelector('.contacts-form__form');
+
+
+function sendMail(data) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('loadend', function () {
+    if (xhr.status === 200) {
+      MicroModal.show('modal-3');
+      form.reset;
+    } else {
+      alert('Ошибка при отправке' + xhr.status);
+    }
+  });
+
+  xhr.open('POST', 'send.php');
+  xhr.send(data);
+};
+
+form.addEventListener('submit', function (evt) {
+  var formData = new FormData(form);
+  sendMail(formData);
+  evt.preventDefault();
+  if (evt.which === ENTER_KEYCODE) {
+    evt.preventDefault();
+  }  
+});
+
+
+
+

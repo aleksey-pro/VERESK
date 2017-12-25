@@ -72,6 +72,20 @@
               </div>
             </div>
           </div>
+          <div class="micromodal-slide" id="modal-3" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <div class="modal__content" id="modal-3-content">
+                  <div class="modal__company-logo"><img src="images/footer_logo.png" alt="Письмо выслано"></div>
+                  <div class="modal__dialog">
+                    <div class="modal__dialog-title">Cпасибо!</div>Ваша заявка принята!
+                  </div>
+                  <div class="modal__send-image"><img src="images/send_logo.png" alt="Письмо выслано"></div>
+                </div>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+              </div>
+            </div>
+          </div>
           <div class="section-wrapper contacts-wrapper">      
             <div class="heading heading--contacts">контакты</div><img class="collage" src="images/contacts_main.png" alt="Вереск">
             <div class="collage__book">
@@ -102,9 +116,9 @@
                 <div class="contacts-form"> 
                   <div class="contacts-form__title">обратная связь</div>
                   <form class="contacts-form__form">
-                    <input type="text" name="text" placeholder="Имя">
-                    <input type="email" name="email" placeholder="E-mail">
-                    <textarea name="description" cols="25" rows="9" placeholder="Текст"></textarea>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="phone" name="phone" placeholder="Телефон" required>
+                    <textarea name="mess" cols="25" rows="9" placeholder="Текст"></textarea>
                     <button type="submit" value="Отправить" name="submit">Отправить</button>
                   </form>
                 </div>
