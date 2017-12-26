@@ -20,9 +20,10 @@
   position: relative;
   height: 100%;
   width: 70.3vw;
-}
-.section-wrapper {
-	box-sizing: border-box;	
+
+  @media all and (max-width: 1024px) {
+	width: 100vw;
+  }
 }
 
 .about-wrapper  {
@@ -64,6 +65,11 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	box-sizing: border-box;
+
+    @media all and (max-width: 1024px) {
+	    width: 100vw;
+    }
 }
 
 //about
@@ -76,14 +82,30 @@
 	width: 70%;
 	margin-left: 6vw;
 	margin-top: 250px;
+
+    @media all and (max-width: 1024px) {
+	    width: 90%;
+	    margin-top: 200px;
+    }	
 }
 
 .about-image {
 	width: 50vw;
     margin: 0 auto;	
+
+    @media all and (max-width: 640px) {
+	    width: 70vw;
+    }
+
 }
 
 //contacts
+
+#contacts {
+    @media all and ( max-width: 640px) {
+    	height: auto!important;
+    }
+}
 
 .heading--contacts {
 	top: 60px;
@@ -113,6 +135,17 @@
     margin-top: -50vh;
     margin-left: auto;
     margin-right: auto;
+
+    @media all and (max-width: 900px) {
+    	margin-top: -30vh;
+    	margin-left: unset;
+    	margin-right: unset; 	
+    }
+
+    @media all and (max-width: 640px) {
+    	margin-top: -15vh;
+    	height: auto;
+    }
 }
 
 .cart-button {
@@ -138,7 +171,7 @@
 
 .contacts-data {
 	display: flex;
-	flex-wrap: no-wrap;
+	flex-wrap: wrap;
 	position: relative;
 	padding-top: 50px;
 }
@@ -149,10 +182,7 @@
 	padding-left: 50px;
 	font-size: 1.1vw;
     width: 310px;
-
-    @media all and ( max-width: 250px) {
-    	width: 290px;
-    }
+    flex: 1 0 320px;
 
 	.contacts-par {
 		p {
@@ -167,18 +197,25 @@
 .contacts-form {
 	background: transparent url(./backform_bg.jpg) 0 0 no-repeat;
 	padding: 0 10px;
+	max-width: 250px;
+
+    @media all and (max-width: 640px) {
+    	margin: 20px auto 120px;
+    }
+	
+
 	&__title {
 		text-align: center;
 		margin: 20px 0;
 		color: #fff;
 		text-transform: uppercase;
-		font-size: 10.1px;
+		font-size: 14px;
 	}
 }
 
-.contacts-gap {
-	width: 50px;
-}
+// .contacts-gap {
+// 	width: 50px;
+// }
 
 .contacts-form__form {
 	width: inherit;
@@ -197,6 +234,7 @@
 		background-color: rgba(#fff, 0.5);
 		background-repeat: no-repeat;
 		font-size: 14px;
+		font-family: Arial;
 		@include placeholder {
 			color: #fff;
 		}
@@ -239,6 +277,12 @@
 
 //partners
 
+#partners {
+    @media all and ( max-width: 640px) {
+    	height: auto!important;
+    }
+}
+
 .partners-wrapper {
     justify-content: space-between;
 	display: flex;
@@ -249,6 +293,10 @@
 	font-family: Olympia_Deco, Arial;
 	font-size: 45.07px;	
 	margin: 15px 0;
+
+    @media all and ( max-width: 640px) {
+    	font-size: 22.5px;
+    }	
 }
 
 #map {
@@ -300,6 +348,10 @@
 				border: 50px solid transparent;
 				border-bottom: 20px solid #9c9bec;			
 			}
+
+	    @media all and ( max-width: 640px) {
+    		height: 30px;
+    	}
 
 		}
 

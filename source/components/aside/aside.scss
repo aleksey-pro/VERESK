@@ -3,6 +3,7 @@ $blue: #0e0ab3;
 $light-blue: #6d75ff;
 $white: #fff;
 
+
 .aside {
 	position: fixed;
 	height: 100%;
@@ -10,12 +11,24 @@ $white: #fff;
 	left: 0;
 	top: 0;
 	bottom: 0;
+    transition: all 1s;
 
 	background-color: #fff;
 	background-image: url('./menu_bg_3.jpg');
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-size: cover;
+
+	@media all and (max-width: 1024px) {
+		width: 207px;
+		left: -207px;
+		z-index: 100000;
+	}
+
+}
+
+.is-open {
+	left: 0;
 }
 
 .panel {
@@ -28,6 +41,11 @@ $white: #fff;
 	align-items: center;
 
 	box-shadow: 10px 3px 30px 0px rgba(50, 50, 50, 0.8);
+
+
+	@media all and (max-width: 1024px) {
+		width: 207px;
+	}
 }
 
 .panel__contact-email {
@@ -39,6 +57,10 @@ $white: #fff;
 	span {
 		color: $blue;	
 	}
+
+	@media all and (max-width: 1024px) {
+		font-size: 15px!important;
+	}	
 }
 
 .panel__contact-phone {
@@ -48,7 +70,11 @@ $white: #fff;
 	font-family: 'Tinos', serif;
 	span {
 		color: $blue;	
-	}		
+	}
+
+	@media all and (max-width: 1024px) {
+		font-size: 22px!important;
+	}
 }
 
 
@@ -78,6 +104,13 @@ $white: #fff;
 		font-weight: 700;
 		text-transform: inherit;
 		padding-left: 5px;
+		@media all and (max-width: 1024px) {
+			font-size: 10.24px!important;
+		}
+	}
+
+	@media all and (max-width: 1024px) {
+		font-size: 40px!important;
 	}
 }
 
@@ -133,6 +166,10 @@ ul.products-menu {
 	    	font-family: Olympia_Deco, Arial;
 	    	position: relative;
 	    	transition: inherit;
+
+    		@media all and (max-width: 1024px) {
+				font-size: 11.2px!important;
+			}
     	}
   	}
 }

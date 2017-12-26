@@ -14,7 +14,7 @@ var anim = new Animation;
 
 ymaps.load().then(maps => {
   const map = new maps.Map(document.getElementById("map"), {
-    center: [60.697932, 28.766090],
+    center: [60.699, 28.752],
     zoom: 14
   });
   map.behaviors.disable('scrollZoom');

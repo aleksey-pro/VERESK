@@ -81,7 +81,12 @@ Scroll(mainLink, $('#main'));
 Scroll(aboutLink, $('#about'));
 Scroll(contactsLink, $('#contacts'));
 
+//toggle hamburger menu
 
+$('#hamburger-9').on('click', function(){
+  $(this).toggleClass("is-active");
+  $('.aside').toggleClass("is-open");
+});
 
 
 // export default function (menuObj, className) {
