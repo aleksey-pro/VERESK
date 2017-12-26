@@ -41,15 +41,15 @@
 }
 
 .swiper-slide--first {
-	background: #fff url(./slider-1.jpg) left bottom no-repeat;
+	background: #fff url(./slider-1.jpg) right bottom no-repeat;
 	background-size: cover;
 }
 .swiper-slide--second {
-	background: #fff url(./slider-2.jpg) left bottom no-repeat;
+	background: #fff url(./slider-2.jpg) right bottom no-repeat;
 	background-size: cover;
 }
 .swiper-slide--third {
-	background: #fff url(./slider-3.jpg) left bottom no-repeat;
+	background: #fff url(./slider-3.jpg) right bottom no-repeat;
 	background-size: cover;
 }
 
@@ -109,13 +109,6 @@
 	height: 482px;
 	background: transparent url(./contacts_book.png) 0 0 no-repeat;
 	background-size: contain;
-	// position: absolute;
-	// bottom: 100px;
-	// right: 12vw;
-
-	// @media all and (max-width: 1200px) {
-	// 	right: 8vw;
-	// }
 	position: relative;
     margin-top: -50vh;
     margin-left: auto;
@@ -247,7 +240,7 @@
 //partners
 
 .partners-wrapper {
-    justify-content: flex-end;
+    justify-content: space-between;
 	display: flex;
 }
 

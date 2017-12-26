@@ -10586,9 +10586,9 @@ class Animation {
 	}
 
 	play() {
-		if (this.activeSection('#main', 500, 800)) {
+		if (this.activeSection('#about', 500, 800)) {
 			this.tl1.resume();
-		} else if (this.activeSection('#about', 500, 800)) {	
+		} else if (this.activeSection('#contacts', 500, 800)) {	
 			this.tl2.resume();
 		}
 	}

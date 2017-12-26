@@ -5,7 +5,6 @@ import 'normalize.css';
 import createMenu from '../../components/aside/aside';
 
 var renderProducts = function (item, headTitle) {
-	console.log(headTitle);
 	var productsTemplate = document.querySelector('template').content;
 	var product = productsTemplate.cloneNode(true);
 	product.querySelector('.heading--products').textContent = headTitle;
@@ -33,14 +32,22 @@ var fillProducts = function (data, idx) {
 		}
   }
   container.appendChild(fragment);
-
-  	// Correct width of product image
-
-	// var image = document.querySelector('.product-item__image');
-	// var linkValue = image.children[0].src.value;
-	// console.log(linkValue);
-	// image.children[0].style.height = '100%';
 };
+
+
+// Correct height of goods
+
+var correctHeights = function () {	
+	var productBlocks = document.querySelectorAll('.product-item__image');	
+	[].forEach.call(productBlocks, function (productBlock){
+		var productBlockHeight = productBlock.offsetHeight;
+		var productImage = productBlock.children[0];
+		var productHeight = productImage.offsetHeight;
+		if(productHeight >= productBlockHeight) {
+			productImage.style.height = '100%';
+		}		
+	});
+}
 
 function loadProduction(idx) {
 
@@ -48,19 +55,21 @@ function loadProduction(idx) {
 
   xhr.addEventListener('load', function () {
     if (xhr.status === 200) {
-      fillProducts(xhr.response, idx);
+      fillProducts(xhr.response, idx); // https://icons8.com/preloaders/en/circular
     }
   });
   xhr.addEventListener('error', function () {
     console.log(xhr.status + ' Произошла ошибка загрузки');
   });
-  xhr.addEventListener('loadend', function(){
-  	var loaderBlock = document.querySelector('.loader'); // https://icons8.com/preloaders/en/circular
-  	loaderBlock.setAttribute('hidden', 'hidden');
+
+  xhr.addEventListener('loadend', function () {  
+  window.setTimeout(function(){
+	correctHeights();
+  }, 2000);	
   });
 
   xhr.responseType = 'json';
-  xhr.open('GET', 'http://agropiter.com/data.json'); //
+  xhr.open('GET', 'http://agropiter.com/data.json '); //
   xhr.send(); // https://raw.githubusercontent.com/davegahn/VERESK/master/source/js/data.json
 };
 
@@ -72,7 +81,7 @@ $(document).ready(function() {
 	// Set backgroundImage
 
 	var leftImage = document.querySelector('.aside');
-	leftImage.style.backgroundImage = 'url(images/menu_bg_3.jpg)';
+	leftImage.style.backgroundImage = 'url(images/menu_bg_1.jpg)';
 
 	// Load Products
 
@@ -81,6 +90,7 @@ $(document).ready(function() {
 		loadProduction(0);
 	}else if (hash === '#tubes') {
 		loadProduction(1);
+		correctHeights();
 	}else if (hash === '#torts') {
 		loadProduction(2);
 	}else if (hash === '#diets') {
@@ -108,7 +118,7 @@ var dietsLink = document.getElementById('diets');
 vafliLink.addEventListener('click', function(e) {
 	e.preventDefault();
 	e.stopPropagation();
-	loadProduction(0);	
+	loadProduction(0);
 });
 
 tubesLink.addEventListener('click', function(e) {
