@@ -7,8 +7,11 @@ block main
       .swiper-container
         .swiper-wrapper
           .swiper-slide.swiper-slide--first
+            img(src=require("./slider-1.jpg") alt="Вереск")
           .swiper-slide.swiper-slide--second
+            img(src=require("./slider-2.jpg") alt="Вереск")
           .swiper-slide.swiper-slide--third
+            img(src=require("./slider-3.jpg") alt="Вереск")
         .swiper-pagination
   section#about
     .section-wrapper.about-wrapper        
@@ -86,7 +89,7 @@ block main
       .partners-tiles
         a(href='http://www.ptd.spb.ru' target='blank').partners-tiles__link
           img(src=require('./ptd_link.jpg')).partners-tile__image          
-          .partners-tile__desc 
+          .partners-tile__desc#ptd
             .partners-tile__pointer          
             span 
               | Официальный поставщик завода «Петербургский торговый дом»  
@@ -94,7 +97,7 @@ block main
               | Надежный партнер на рынке
         a(href='http://www.svirhleb.ru' target='blank').partners-tiles__link
           img(src=require('./svir_link.jpg')).partners-tile__image          
-          .partners-tile__desc 
+          .partners-tile__desc#svir
             .partners-tile__pointer        
             span
               | Завод хлебобулочныых изделей «Свирьхлеб»  

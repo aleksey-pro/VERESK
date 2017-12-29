@@ -69,7 +69,7 @@ function loadProduction(idx) {
   });
 
   xhr.responseType = 'json';
-  xhr.open('GET', 'http://agropiter.com/data.json '); //
+  xhr.open('GET', 'http://agropiter.com/data.json'); //  
   xhr.send(); // https://raw.githubusercontent.com/davegahn/VERESK/master/source/js/data.json
 };
 
@@ -119,6 +119,8 @@ vafliLink.addEventListener('click', function(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	loadProduction(0);
+	e.target.style.color = '#fff';
+	console.log(e.target);
 });
 
 tubesLink.addEventListener('click', function(e) {

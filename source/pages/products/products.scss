@@ -5,6 +5,10 @@
 	position: relative;
 	padding-top: 170px;		
     border-bottom: 5px solid #fff;
+
+    @media all and (max-width: 1024px) {
+	    width: 100vw;
+    }
 }
 
 .heading--products {
@@ -12,16 +16,10 @@
 }
 
 .product-item {	
-	height: 450px;
+	height: 520px;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;	
-
-	&:nth-child(odd) {
-		flex-direction: row-reverse;
-		box-shadow: -3px 0px 30px 0px rgba(50, 50, 50, 0.8);
-	    // z-index: -10;
-	}
+	flex-wrap: wrap;
 
 	&__image {
 		flex: 1 0 50%;
@@ -35,6 +33,7 @@
 		img {
 			width: 100%;
 		}
+
 	}
 
 	&__desc {
@@ -72,10 +71,32 @@
 	    border: 43px solid transparent;
 	    border-left: 22px solid #1515b4;
 
+	    @media all and (max-width: 551px) {
+	        left: calc(50% - 21px);
+		    top: 0;
+		    border: 22px solid transparent;
+		    border-top: 22px solid #1515b4;
+	    }
+	}	
+}
+
+.product-item__desc-params {
+	font-size: 20.83px;
+	.desc-param {
+		border-bottom: 1px solid #000;
+		display: flex;
+		justify-content: space-between;
 	}
 }
 
 .product-item:nth-child(odd) {
+	flex-direction: row-reverse;
+	box-shadow: 0px 8px 19px 0px rgba(50, 50, 50, 0.8);
+
+	// .product-item__desc {
+	// 	z-index: -1; // TODO: не работает для того, чтобы отоображать внутренние тени
+	// }
+
 	.product-item__desc-pointer {
 	    position: absolute;
 	    right: 0;
@@ -85,17 +106,13 @@
 	    height: 0;
         border: 43px solid transparent;
     	border-right: 22px solid #1515b4;
-	}
-}
-
-
-
-.product-item__desc-params {
-	font-size: 20.83px;
-	.desc-param {
-		border-bottom: 1px solid #000;
-		display: flex;
-		justify-content: space-between;
+    	
+	    @media all and (max-width: 551px) {
+	        left: calc(50% - 21px);
+		    top: 0;
+		    border: 22px solid transparent;
+		    border-top: 22px solid #1515b4;
+	    }
 	}
 }
 

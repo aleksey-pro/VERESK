@@ -7859,7 +7859,7 @@ var anim = new __WEBPACK_IMPORTED_MODULE_8__libs_animate_js__["a" /* default */]
 
 __WEBPACK_IMPORTED_MODULE_5_ymaps___default.a.load().then(maps => {
   const map = new maps.Map(document.getElementById("map"), {
-    center: [60.697932, 28.766090],
+    center: [60.699, 28.752],
     zoom: 14
   });
   map.behaviors.disable('scrollZoom');
@@ -7873,13 +7873,41 @@ __WEBPACK_IMPORTED_MODULE_5_ymaps___default.a.load().then(maps => {
 .catch(error => console.log('Failed to load Yandex Maps', error));	
 
 function setSectionHeight() {
-  var wheight = document.documentElement.clientHeight;
-  var section = document.querySelectorAll('section');
-  [].map.call(section, function(elem) {
-    elem.style.height = wheight + 'px';
-  });
-  return section;
+  if (document.documentElement.clientWidth >= 1200) {
+    var wheight = document.documentElement.clientHeight;
+    var section = document.querySelectorAll('section');
+    [].map.call(section, function(elem) {
+      elem.style.height = wheight + 'px';
+    });
+    return section;
+  }
 };
+
+  // function get_name_browser() {
+  //   // получаем данные userAgent
+  //   const ua = navigator.userAgent;
+  //   // с помощью регулярок проверяем наличие текста,
+  //   // соответствующие тому или иному браузеру
+  //   if (ua.search(/Edge/) > 0) return 'Edge';
+  //   if (ua.search(/Chrome/) > 0) return 'Google Chrome';
+  //   if (ua.search(/Firefox/) > 0) return 'Firefox';
+  //   if (ua.search(/Opera/) > 0) return 'Opera';
+  //   if (ua.search(/Safari/) > 0) return 'Safari';
+  //   if (ua.search(/MSIE/) > 0) return 'Internet Explorer';
+  //   if (ua.search(/Trident/) > 0) return 'Trident';
+  //   // условий может быть и больше.
+  //   // сейчас сделаны проверки только
+  //   // для популярных браузеров
+  //   return 'Не определен';
+  // };
+
+  // if (get_name_browser() == 'Firefox') {
+  //   var sliderImage = document.querySelectorAll('.swiper-slide');
+  //   [].forEach.call(sliderImage, function(image) {
+  //     image.children[0].style.width = 'unset';
+  //   })      
+  // };
+
 
 $(window).ready(function() {
   setSectionHeight();
@@ -7888,19 +7916,6 @@ $(window).ready(function() {
     anim.description();
     anim.play();
   }
-
-  var imgs = $('.partners-tiles__image');
-
-  imgs.on('mouseenter', function(e) {
-  
-    console.log('imgs');
-    // var thisImage = $(this);
-    // var wrapper = thisImage.closest('.partners-tiles');
-    // var otherImages = wrapper.find('.partners-tiles__image');
-    // otherImages.addClass('partners-tiles__image--active')
-    // thisImage.removeClass('partners-tiles__image--active');
-  });
-
 });
 
 $(window).scroll(function () {
@@ -7923,19 +7938,8 @@ var swiper = new __WEBPACK_IMPORTED_MODULE_6_swiper__["a" /* default */]('.swipe
 	},
 	autoplay: {
     	delay: 5000,
-    },
+  }
 });
-
-//  hover
-
-// var images = document.querySelectorAll('.partners-tiles__image');
-
-// [].forEach.call(images, function(el){
-//   el.addEventListener('hover', function(e){
-//     e.preventDefault();
-//     console.log(this);
-//   })
-// });
 
 
 // sendmail

@@ -10439,6 +10439,9 @@ var menuCollapse = mainMenu.querySelector('.products-menu');
 var menuItem = mainMenu.querySelectorAll('.products-menu__item');
 
 
+
+
+
 for(var i = 0; i < menuItem.length; i++) {
 	menuItem[i].addEventListener('mouseover', function (e) {
 		this.style.backgroundColor = '#0e0ab3';
@@ -10449,7 +10452,7 @@ for(var i = 0; i < menuItem.length; i++) {
 	menuItem[i].addEventListener('mouseout', function (e) {
 		this.style.backgroundColor = '#6d75ff';
 		var prodMenuLink = this.children[0];
-		prodMenuLink.style.color = '#000';
+		prodMenuLink.style.color = '';
 	});
 	menuItem[i].addEventListener('click', function (e) {
 		e.stopPropagation();
@@ -10469,7 +10472,7 @@ var tortsLink = document.getElementById('torts');
 var dietsLink = document.getElementById('diets');
 
 vafliLink.addEventListener('click', function(e) {
-	e.stopPropagation();	
+	e.stopPropagation();
 });
 
 tubesLink.addEventListener('click', function(e) {
@@ -10510,7 +10513,12 @@ Scroll(mainLink, $('#main'));
 Scroll(aboutLink, $('#about'));
 Scroll(contactsLink, $('#contacts'));
 
+//toggle hamburger menu
 
+$('#hamburger-9').on('click', function(){
+  $(this).toggleClass("is-active");
+  $('.aside').toggleClass("is-open");
+});
 
 
 // export default function (menuObj, className) {

@@ -12,6 +12,7 @@ $white: #fff;
 	top: 0;
 	bottom: 0;
     transition: all 1s;
+    // z-index: -2;
 
 	background-color: #fff;
 	background-image: url('./menu_bg_3.jpg');
@@ -79,18 +80,22 @@ $white: #fff;
 
 
 .panel__logo {
-	    padding: 4vh 20px 5vh;
+	    padding: 2vh 20px 5vh;
 	img {
 	    width: 24vh;
 	    height: 20vh;
 		display: block;
+		@media all and (max-width: 1200px) {
+		    width: 20vh;
+	    	height: 15vh;
+		}
 	}
 }
 
 
 .panel__title {
 	padding: 0 10px;
-	font-size: 4.5vw;
+	font-size: 4.9vw;
 	text-align: center;
 	line-height: 1;
 	color: $blue;
@@ -138,6 +143,11 @@ ul.main-menu {
 	    	font-family: Olympia_Deco, Arial;
 	    	position: relative;
 	    	padding: 0 20px;
+
+    		@media all and (max-width: 1024px) {
+				font-size: 2.2vh;
+			}
+
     	}
     	.main-menu__link:hover, .main-menu__link:active {
 			color: $blue;
