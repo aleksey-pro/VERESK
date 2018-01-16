@@ -6,9 +6,10 @@ module.exports = function(paths) {
             rules: [
                 {
                     test: /\.scss$/,
-                    include: paths,
+                    include: paths,                    
                     use: ExtractTextPlugin.extract({
                         publicPath: '../',
+                        allChunks: true,
                         fallback: 'style-loader',
                         use: ['css-loader?minimize=true','postcss-loader','sass-loader'],
                     }),
@@ -18,6 +19,7 @@ module.exports = function(paths) {
                     include: paths,
                     use: ExtractTextPlugin.extract({
                         publicPath: '../',
+                        allChunks: true,
                         fallback: 'style-loader',
                         use: ['css-loader?minimize=true','postcss-loader'],
                     }),

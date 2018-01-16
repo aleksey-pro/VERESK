@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(name='viewport' content="width=device-width,initial-scale=1")
     meta(name="description", content="Вереск кондитерская продукция")
     meta(name="keywords", content="вереск кондитерская продукция")
@@ -10,20 +10,13 @@ html
     link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
     title
       block title
-    body
-      .aside-trigger
-        #hamburger-9
-          .aside-trigger__line
-          .aside-trigger__line
-          .aside-trigger__line     
-      .wrapper
-        include ../components/aside/aside
-        block main
-        #modal-2(aria-hidden="true").micromodal-slide
-          div(tabindex="-1" data-micromodal-close).modal__overlay
-            div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container
-              #modal-1-content.modal__content
-                a(href='./price.pdf' download).modal-2-button.modal-2-button--xls
-                  span PDF
-                a(href='./price.xls' download).modal-2-button.modal-2-button--pdf
-                  span XLS
+  body
+    .aside-trigger
+      -var lines = 3;
+      #hamburger-9          
+        - while(lines--)
+          .aside-trigger__line 
+    .wrapper
+      include ../components/aside/aside
+      block main
+      include ../components/modal/modal

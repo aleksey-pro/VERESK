@@ -1,5 +1,3 @@
-@import 'fonts';
-
 %clearfix {
   &:after, &:before {
     content: '';
@@ -14,6 +12,8 @@ $yellow: #FFD20F;
 $blue: #0e0ab3;
 $light-blue: #6d75ff;
 $white: #fff;
+$brown: #51473e;
+$dark-blue: #1515b4;
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -33,29 +33,27 @@ $white: #fff;
   }
 }
 
-
-
-@mixin widescreen() {
-  @media screen and (min-width: 1441px) {
+@mixin medium-desktops() {
+  @media screen and (max-width: 1450px) {
     @content;
   }
 }
+
 
 @mixin desktops() {
-  @media screen and (max-width: 1024px) {
+  @media all and (max-width: 1024px) {
     @content;
   }
 }
 
-
 @mixin tablets() {
-  @media screen and (max-width: 768px) {
+  @media all and (max-width: 640px) {
     @content;
   }
 }
 
 @mixin phones() {
-  @media screen and (max-width: 480px) {
+  @media all and (max-width: 551px) {
     @content;
   }
 }

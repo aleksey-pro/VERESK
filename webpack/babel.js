@@ -7,7 +7,17 @@ module.exports = function() {
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader',
 				options: {
-					presets: ['es2015', 'babel-preset-env', 'stage-3']
+					presets: [
+                      'babel-polyfill',  
+                      'es2015',
+                      ['env', {
+                        'targets': {
+                            'browsers':['last 5 versions', 'ie >= 9']                            
+                        }
+                      }],
+                      'es2015-ie',
+                      'stage-3'
+                    ]
 				}
             }]
         }

@@ -1,16 +1,16 @@
 // import gsap from "gsap";
-import {TimelineMax, CSSPlugin, CSSRulePlugin} from "gsap";
+import {TimelineMax, CSSPlugin, CSSRulePlugin} from 'gsap';
 
 
 export default class Animation {
-	constructor() {		
-		this.tl1 = new TimelineMax();
-		this.tl2 = new TimelineMax();
-		this.tl1.pause();
-		this.tl2.pause();
-		this.elem = $('.heading--about');
-		this.elem2 = $('.heading--contacts');
-	}
+    constructor() {		
+        this.tl1 = new TimelineMax();
+        this.tl2 = new TimelineMax();
+        this.tl1.pause();
+        this.tl2.pause();
+        this.elem = $('.heading--about');
+        this.elem2 = $('.heading--contacts');
+    }
 
 	description() {
 		this.tl1.from(this.elem, 3, {

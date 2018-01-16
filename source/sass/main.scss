@@ -1,11 +1,14 @@
 @import "fonts";
+@import "_vars";
+
+
 
 html {
 	height: 100%;
 }
 
 body {
-	background-color: #fff;
+	background-color: $white;
 	font-family: 'Tinos', Georgia, serif;
 	height: 100%;
 	width: 100%;
@@ -29,7 +32,7 @@ section, footer {
 	display: flex!important;
 	justify-content: flex-end;
 
-	@media all and (max-width: 1024px) {
+	@include desktops() {
 		justify-content: normal;
 	}
 }
@@ -46,15 +49,15 @@ section, footer {
 	display: block;
 	height: 114px;
 	width: 60vw;
-	color: #fff;
+	color: $white;
 	line-height: 114px;
 	font-size: 2.9vw;
 	font-family: Olympia_Deco, Arial;
 	padding-left: 125px;
 	z-index: 100;
-	background: transparent url(./heading_flag.png) 0 0 no-repeat;
+	background: transparent url(./images/heading_flag.png) 0 0 no-repeat;
 
-	@media all and (max-width: 1024px) {
+	@include desktops() {
 		height: 57px;
 		line-height: 57px;	
 		font-size: 6vw;
@@ -65,7 +68,7 @@ section, footer {
 
 .products__wrapper {
 	.heading {
-		@media all and (max-width: 1450px) {
+		@include medium-desktops() {
 			left: -32px;
 			height: 57px;
 			line-height: 57px;	
@@ -93,7 +96,7 @@ section, footer {
 	right: 3%;
 	top: -10px;
 	bottom: 0;
-	background: transparent url(./footer_logo.png) 0 0 no-repeat;
+	background: transparent url(./images/footer_logo.png) 0 0 no-repeat;
 	height: 45px;
 	width: 113px;
 	margin: auto;
@@ -101,7 +104,7 @@ section, footer {
 	span {
 		position: absolute;
 		bottom: -30px;
-		color: #fff;
+		color: $white;
 		font-size: 18px;
 	    font-family: 'Tinos', serif;
 	    text-transform: uppercase;
@@ -111,161 +114,6 @@ section, footer {
 	}
 }
 
-
-// modal 
-
-.modal__overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0,0,0,0.6);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 300000;
-}
-.modal__container {
-	overflow-y: auto;
-	position: relative;
-}
-
-.modal__close {
-	position: absolute;
-	top: 1em;
-	right: 1em;
-}
-
-.modal__close:before {
-    content: "\2715";
-}
-
-#modal-1 {
-	.modal__content {
-		background: transparent url('./cart.jpg') 0 0 no-repeat;
-		background-size: contain;
-	    width: 50vw;
-        height: 80vh;
-		@media all and (max-width: 1024px) {
-			width: 90vw;
-		}
-	}
-}
-
-#modal-2 {
-	.modal__content {
-	    height: 10vh;
-	    background-color: #fff;
-	    display: block;
-	    border-radius: 10px;
-	    border: 1px solid blue;
-	    display: flex;
-	}
-	.modal-2-button {
-		width: 50%;	
-		margin: 1.5em;
-		border-radius: 5px;
-		color: #fff;
-		text-decoration: none;
-		font-size: 1.2em;
-	    transition: all 0.3s ease-in;
-        display: flex;
-	    align-items: center;
-	    justify-content: center;
-        padding: 5px;
-	}
-	.modal-2-button--xls {
-		background-color: #008000;
-	}
-	.modal-2-button--xls:hover {
-		background-color: darken(#008000, 20%);
-	}
-	.modal-2-button--pdf {
-		background-color: #ff0000;
-	}
-	.modal-2-button--pdf:hover {
-		background-color: darken(#ff0000, 20%);
-	}
-}
-
-
-#modal-3 {
-	.modal__content {
-    	text-align: center;
-	    width: 45vw;
-    	height: 50vh;
-	    background: #fff url(./send_bg.jpg) center center no-repeat;
-	    display: flex;
-	    flex-direction: column;
-	    align-items: center;
-	    justify-content: space-around;
-
-	    .modal__dialog {
-	    	font-size: 37.47px;
-
-		    &-title {
-				color: #0e0ab3;
-				font-size: 50px;
-		    }
-	    }
-
-	}
-}
-
-// Modal Animation
-
-@keyframes mmfadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
-}
-
-@keyframes mmfadeOut {
-    from { opacity: 1; }
-      to { opacity: 0; }
-}
-
-@keyframes mmslideIn {
-  from { transform: translateY(15%); }
-    to { transform: translateY(0); }
-}
-
-@keyframes mmslideOut {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10%); }
-}
-
-
-.micromodal-slide {
-  display: none;
-}
-
-.micromodal-slide.is-open {
-  display: block;
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
-}
-
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
-  will-change: transform;
-}
-
-
 // Menu Trigger
 
 .aside-trigger {
@@ -274,7 +122,7 @@ section, footer {
 	right: 2vw;
 	top: 0;
     z-index: 1000;
-    background-color: #fff;
+    background-color: $white;
     padding: 10px;
 
 	.aside-trigger__line {
@@ -290,7 +138,7 @@ section, footer {
 		cursor: pointer;
 	}
 
-	@media all and (max-width: 1024px) {
+	@include desktops() {
 		display: block;
 	}
 }

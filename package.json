@@ -7,10 +7,18 @@
   "scripts": {
     "start": "webpack-dev-server --env development",
     "build": "webpack --env production",
-    "serv": "static build"
+    "serv": "static build",
+    "test:lint": "eslint . --cache"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "core-js": "^2.5.3",
     "css-loader": "^0.28.0",
+    "eslint": "^4.15.0",
+    "eslint-loader": "^1.9.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "gsap": "^1.20.3",
@@ -22,12 +30,13 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2",
+    "webpack-dev-server": "2.7.1",
     "webpack-merge": "^4.1.0",
     "webpack-spritesmith": "^0.3.5"
   },
   "dependencies": {
     "jquery": "^3.2.1",
+    "md5-hash-webpack-plugin": "^0.1.1",
     "micromodal": "^0.2.1",
     "modal": "^1.2.0",
     "normalize.css": "^6.0.0",

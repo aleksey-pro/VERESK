@@ -8,20 +8,24 @@ $mail = new PHPMailer;
 
 $mail->isSMTP();
 $mail->CharSet = 'UTF-8';
-$mail->Host = 'mail.nic.ru';
+$mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'postmaster@ptd.spb.ru';
-$mail->Password = 'YpAt8NcBgE';
+$mail->Username = 'aleksey.flce@gmail.com';
+$mail->Password = '7a068ae30';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465; //587, 25 или 2525
-$mail->setFrom('postmaster@ptd.spb.ru'); //  Ваш Email
-$mail->addAddress('office@veresk-vafli.ru'); // Email получателя
+$mail->setFrom('office@veresk-vafli.ru'); //  Ваш Email
+$mail->addAddress('ptd@fgr.ru'); // Email получателя
+
+
+// $Mailer->SMTPDebug = 3;
+// $Mailer->SMTPDebug = 4;
 
 // Письмо
 $mail->isHTML(true);
 $mail->Subject = "Сообщение с сайта veresk-vafli.ru"; // Заголовок письма
 
-$mail->Body = "Имя: {$_POST['name']}<br> Email: {$_POST['email']}<br> Телефон: {$_POST['phone']}<br> Сообщение: " . nl2br($_POST['mess']);
+$mail->Body = "Имя: {$_POST['name']}<br> Email: {$_POST['phone']}<br> Телефон: {$_POST['phone']}<br> Сообщение: " . nl2br($_POST['mess']);
 
 // Результат
 if(!$mail->send()) {

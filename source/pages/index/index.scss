@@ -1,27 +1,11 @@
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-
-  &:-moz-placeholder { /* Firefox 18- */
-    @content;
-  }
-
-  &::-moz-placeholder {  /* Firefox 19+ */
-    @content;
-  }
-
-  &:-ms-input-placeholder {
-    @content;
-  }
-}
+@import "../../sass/_vars";
 
 .main__wrapper {
   position: relative;
   height: 100%;
   width: 70.3vw;
 
-  @media all and (max-width: 1024px) {
+ @include desktops() {
 	width: 100vw;
   }
 }
@@ -42,7 +26,7 @@
 }
 
 .swiper-pagination-bullet-active {
-	background: #0e0ab3;
+	background: $blue;
 }
 
 // ---------
@@ -54,7 +38,7 @@
 	position: relative;
 	box-sizing: border-box;
 
-    @media all and (max-width: 1024px) {
+   @include desktops() {
 	    width: 100vw;
     }
 }
@@ -69,10 +53,12 @@
 	width: 70%;
 	margin-left: 6vw;
 	margin-top: 250px;
+	font-size: 1.2em;
 
-    @media all and (max-width: 1024px) {
+   @include desktops() {
 	    width: 90%;
 	    margin-top: 200px;
+	    font-size: 1em;
     }	
 }
 
@@ -80,7 +66,7 @@
 	width: 50vw;
     margin: 0 auto;	
 
-    @media all and (max-width: 640px) {
+    @include tablets() {
 	    width: 70vw;
     }
 
@@ -89,7 +75,7 @@
 //contacts
 
 #contacts {
-    @media all and ( max-width: 640px) {
+    @include tablets() {
     	height: auto!important;
     	overflow: hidden;
     }
@@ -116,14 +102,18 @@
     top: -100px;
     left: 20%;
     transform: rotate(-18deg);
-	background: transparent url(./old_town.jpg) 0 0 no-repeat;
+	background: transparent url(./images/old_town.jpg) 0 0 no-repeat;
 	width: 198px;
 	height: 146px; 
+
+    @media all and (max-width: 820px) {
+		top: -120px;
+    }
 }
 
 .collage__book {
 	height: 482px;
-	background: transparent url(./contacts_book.png) 0 0 no-repeat;
+	background: transparent url(./images/contacts_book.png) 0 0 no-repeat;
 	background-size: contain;
 	position: relative;
     margin-top: -50vh;
@@ -134,7 +124,7 @@
     	margin-top: -40vh; 	
     }
 
-    @media all and (max-width: 1024px) {
+   @include desktops() {
     	margin-top: -50vh;
     	margin-left: unset;
     	margin-right: unset;
@@ -143,7 +133,6 @@
     @media all and (max-width: 820px) {
     	margin-top: -20vh;
     	height: auto;
-    	background-size: cover;
 	    margin-right: auto;
     }
 }
@@ -151,7 +140,7 @@
 .cart-button {
 	width: 140px;
 	height: 63px;
-	background: transparent url(./scheme_btn.png) 70px 0 no-repeat;
+	background: transparent url(./images/scheme_btn.png) 70px 0 no-repeat;
 	position: absolute;
 	bottom: 50px;
 	right: 5%;
@@ -181,10 +170,9 @@
 	padding-left: 50px;
 	font-size: 1.1vw;
     width: 310px;
-    // flex: 1 0 320px;
 
-    @media all and (max-width: 640px) {
-		font-size: 4vw;
+    @include tablets() {
+		font-size: 2.5vw;
 		padding-left: 70px;
     }
 
@@ -193,18 +181,18 @@
 			margin: 10px 0;
 		}
 		&_title {
-			color: #0e0ab3;
+			color: $blue;
 		}		
 	}
 }
 
 .contacts-form {
-	background: transparent url(./backform_bg.jpg) 0 0 no-repeat;
+	background: transparent url(./images/backform_bg.jpg) 0 0 no-repeat;
 	padding: 0 10px;
 	max-width: 250px;
 	background-size: cover;
 
-    @media all and (max-width: 640px) {
+    @include tablets() {
     	margin: 20px auto 120px;
     }
 	
@@ -212,7 +200,7 @@
 	&__title {
 		text-align: center;
 		margin: 20px 0;
-		color: #fff;
+		color: $white;
 		text-transform: uppercase;
 		font-size: 14px;
 	}
@@ -236,12 +224,12 @@
 	input, textarea {
 		resize: none;
 		padding: 3px 0 3px 25px;
-		background-color: rgba(#fff, 0.5);
+		background-color: rgba($white, 0.5);
 		background-repeat: no-repeat;
 		font-size: 14px;
 		font-family: Arial;
 		@include placeholder {
-			color: #fff;
+			color: $white;
 		}
 	}
 	button[type='submit'] {
@@ -261,20 +249,20 @@
 	input[type='text'] {
 		height: 25px;
 		line-height: 25px;
-		background-image: url(./form-name.png);
+		background-image: url(./images/form-name.png);
 		background-position: 3% center;
 	}
 
 	input[type='phone'] {
 		height: 25px;
 		line-height: 25px;
-		background-image: url(./form_mail.png);
+		background-image: url(./images/form_mail.png);
 		background-position: 3% center;
 	}
 
 	textarea {
 		background-position: 3% 5%;
-		background-image: url(./form-text.png);
+		background-image: url(./images/form-text.png);
 	}	
 }
 
@@ -283,7 +271,7 @@
 //partners
 
 #partners {
-    @media all and ( max-width: 640px) {
+   @include tablets() {
     	height: auto!important;
     }
 }
@@ -299,7 +287,7 @@
 	font-size: 45.07px;	
 	margin: 15px 0;
 
-    @media all and ( max-width: 640px) {
+    @include tablets() {
     	font-size: 22.5px;
     }	
 }
@@ -354,8 +342,9 @@
 				border-bottom: 20px solid #c2c1ee;			
 			}
 
-		    @media all and ( max-width: 640px) {
+		    @include tablets() {
 	    		height: 30px;
+	    		font-size: 2.8vw;
 	    	}
 		}
 
