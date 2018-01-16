@@ -11,7 +11,7 @@ $mail->CharSet = 'UTF-8';
 $mail->Host = 'mail.nic.ru';
 $mail->SMTPAuth = true;
 $mail->Username = 'postmaster@ptd.spb.ru';
-$mail->Password = 'YpAt8NcBgE';
+$mail->Password = '';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465; //587, 25 или 2525
 $mail->setFrom('postmaster@ptd.spb.ru'); //  Ваш Email
