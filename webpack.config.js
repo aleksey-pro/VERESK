@@ -74,7 +74,7 @@ module.exports = function(env) {
             common,
             extractCSS(),
             js(),            
-            // uglifyJS(),
+            // uglifyJS(), replace with babel-minify!!!!
         ]);
     }
     if (env === 'development'){

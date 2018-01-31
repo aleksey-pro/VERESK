@@ -3,7 +3,6 @@ import './products.scss';
 import 'normalize.css';
 
 import createMenu from '../../components/aside/aside';
-import Modal from '../../components/modal/modal';
 import {fillProducts} from './renderProducts.js';
 import loadProduction from './load';
 
@@ -25,17 +24,14 @@ $(document).ready(function() {
 
 // Set backgroundImage
 
-    const leftImage = document.querySelector('.aside');    
-    leftImage.style.backgroundImage = 'url(images/menu_bg_1.jpg)';
-
-	
+    const leftImage = document.querySelector('.aside');
+    leftImage.style.backgroundImage = 'url(images/menu_bg_1.jpg)';	
 
     let hash = window.location.hash;
     if(hash === '#vafli') {
         loadProduction(0, fillProducts, correctHeights);
     }else if (hash === '#tubes') {
         loadProduction(1, fillProducts, correctHeights);
-        correctHeights();
     }else if (hash === '#torts') {
         loadProduction(2, fillProducts, correctHeights);
     }else if (hash === '#diets') {
@@ -50,7 +46,7 @@ $(document).ready(function() {
     const event = new Event('loadClick');
 
     collapseTrigger.addEventListener('loadClick', () => { 
-        menuCollapse.classList.remove('hidden');
+        menuCollapse.classList.remove('hidden');        
     }, false);
     collapseTrigger.dispatchEvent(event);
 
@@ -68,9 +64,17 @@ $(document).ready(function() {
         loadProduction(idx, fillProducts, correctHeights);
     };
 
-    vafliLink.addEventListener('click', e => changeProduction(e, 0, '#vafli'));
-    tubesLink.addEventListener('click', e => changeProduction(e, 1, '#tubes'));
-    tortsLink.addEventListener('click', e => changeProduction(e, 2, '#torts'));
-    dietsLink.addEventListener('click', e => changeProduction(e, 3, '#diets'));
+    vafliLink.addEventListener('click', e => {
+        changeProduction(e, 0, '#vafli');
+    });
+    tubesLink.addEventListener('click', e => {
+        changeProduction(e, 1, '#tubes');
+    });
+    tortsLink.addEventListener('click', e => {
+        changeProduction(e, 2, '#torts');
+    });
+    dietsLink.addEventListener('click', e => {
+        changeProduction(e, 3, '#diets');
+    });
 
 });

@@ -6,14 +6,14 @@ $(window).ready(function() {
     MicroModal.init();
 
     const ENTER_KEYCODE = 13;
-    const form = document.querySelector('.contacts-form__form');
+    const form = $('.contacts-form__form');
 
     const onSend = () => {
         MicroModal.show('modal-3');
         form.reset;
     };
 
-    form.addEventListener('submit', evt => {
+    form.on('submit', evt => {
         const formData = new FormData(form);
         sendMail(formData, onSend);
         evt.preventDefault();

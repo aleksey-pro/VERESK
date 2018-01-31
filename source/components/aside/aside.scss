@@ -197,6 +197,10 @@ ul.products-menu.hidden {
 	top: 50%;
 }
 
+.products-menu__item--active > a {
+	color: #ffffff!important;
+}
+
 
 @media all and (max-height: 830px) {
 	.panel__contact-email {

@@ -2,44 +2,51 @@ import '../../sass/main.scss';
 import '../../sass/swiper.css';
 import './index.scss';
 import 'normalize.css';
-import 'core-js';
+// import 'core-js';
+// import 'babel-polyfill';
+// import 'babel-preset-es2015-ie';
+// import 'es6-shim';
+// import 'babel-plugin-transform-es2015-arrow-functions';
 
 import ymaps from 'ymaps';
-import Swiper from 'swiper'; // http://idangero.us/swiper/api/
+// import Swiper from 'swiper'; // http://idangero.us/swiper/api/
+import Swiper from 'swiper/dist/js/swiper.js'; // http://idangero.us/swiper/api/
+
 
 import createMenu from '../../components/aside/aside';
 import Modal from '../../components/modal/modal';
 import Animation from './animate.js';
 
-// Slider
+// // Slider
 
-var swiper = new Swiper('.swiper-container', {
-    speed: 500,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    autoplay: {
-        delay: 5000,
-    },
-});
+function initSwiper() {
+    var swiper = new Swiper('.swiper-container', {
+        speed: 500,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 5000,
+        },
+    });  
+};
 
-// Высота секций в размер экрана
+
+// // Высота секций в размер экрана
 
 const setSectionHeight = () => {
     if (document.documentElement.clientWidth >= 1200) {
-        let wheight = document.documentElement.clientHeight;
-        const sections = document.querySelectorAll('section');
-        [].map.call(sections, function(elem) {
-            elem.style.height = wheight + 'px';
-        });
+        const wheight = document.documentElement.clientHeight;
+        let sections = document.querySelectorAll('section');
+        [].map.call(sections, elem => {elem.style.height = wheight + 'px'});
         return sections;
     }
 };
 
-// Правки для Firefox
+// // Правки для Firefox
 
-const get_name_browser = () => {  
+const get_name_browser = () => {
     const ua = navigator.userAgent;
     if (ua.search(/Edge/) > 0) return 'Edge';
     if (ua.search(/Chrome/) > 0) return 'Google Chrome';
@@ -53,12 +60,10 @@ const get_name_browser = () => {
 
 if (get_name_browser() == 'Firefox') {
     const sliderImage = document.querySelectorAll('.swiper-slide');
-    [].forEach.call(sliderImage, image => {
-        image.children[0].style.width = 'unset';
-    });    
+    [].forEach.call(sliderImage, image => {image.children[0].style.width = 'unset'});    
 }
 
-// Карта
+// // Карта
 
 ymaps.load().then(maps => {
     const map = new maps.Map(document.getElementById('map'), {
@@ -74,12 +79,13 @@ ymaps.load().then(maps => {
     map.geoObjects.add(Placemark);
 }).catch(error => console.log('Failed to load Yandex Maps', error));  
 
-// Анимации
+// // Анимации
 
 const anim = new Animation;
 
 $(window).ready(function() {
     setSectionHeight();
+    initSwiper();
     if (document.documentElement.clientWidth >= 1200) {
         anim.description();
         anim.play();
