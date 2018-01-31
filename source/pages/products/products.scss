@@ -132,3 +132,37 @@
     margin-top: -170px;
     justify-content: center;
 }
+
+
+.product-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(#000, 0.8);
+	z-index: 100000;
+
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+	    margin: 20%;
+    	transform: translateY(-30%);
+    	padding: 10% 0;
+	}
+
+	&__close {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		background: $blue;
+	}
+
+	&__close:before {
+    	content: "\2715";    	
+	}
+}
+

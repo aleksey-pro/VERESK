@@ -14,7 +14,8 @@ block main
     .product-item 
       .heading.heading--products вафли       
       .product-item__image
-        img(src=require("./vafli1.png") alt="Продукция вереск")
+        a(href="#" class="big-image-link")
+          img(src=require("./vafli1.png") alt="Продукция вереск" class="main-image")
       .product-item__desc
         .product-item__desc-pointer
         .product-item__desc-title вафли весовые
@@ -38,3 +39,7 @@ block main
           .desc-param
             .desc-param__name Гофрокороб (мм)  
             .desc-param__value.desc-param__value--box 345х265х200
+      .product-modal
+        .product-modal__wrapper
+          img(src=require('./vafli1.png') alt='Продукция Вереск' class="big-image")
+          button(aria-label="Close modal").modal__close

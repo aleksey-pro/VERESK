@@ -6,6 +6,8 @@ import createMenu from '../../components/aside/aside';
 import {fillProducts} from './renderProducts.js';
 import loadProduction from './load';
 
+const ENTER_KEYCODE = 27;
+
 // Correct height of goods
 
 const correctHeights = () => {	
@@ -16,6 +18,25 @@ const correctHeights = () => {
         let productHeight = productImage.offsetHeight;
         if(productHeight >= productBlockHeight) {
             productImage.style.height = '100%';
+        }
+    });
+    const modalLinks = $('.big-image-link');
+    modalLinks.on('click', function(e) {
+        e.preventDefault();
+        let item = this.closest('.product-item');
+        let $modalW = $(item).find('.product-modal');
+        $modalW.fadeIn(500);
+    });
+    const modalClose = $('.modal__close');
+    modalClose.on('click', function() {
+        let itemToClose = this.closest('.product-modal');    
+        $(itemToClose).fadeOut(500);
+    });
+
+    $(document).keyup(function(e) {
+        if (e.keyCode === ENTER_KEYCODE) {
+            let itemToClose = $('.product-modal'); 
+            $(itemToClose).fadeOut(500);
         }
     });
 };

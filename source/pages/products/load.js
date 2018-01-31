@@ -17,6 +17,6 @@ export default function (idx, onLoad, onLoadEnd) {
     });
 
     xhr.responseType = 'json';
-    xhr.open('GET', 'http://veresk-vafli.ru/data.json'); //  https://raw.githubusercontent.com/davegahn/VERESK/master/data.json
-    xhr.send(); // 
+    xhr.open('GET', 'https://raw.githubusercontent.com/davegahn/VERESK/master/data.json'); //  
+    xhr.send(); // http://veresk-vafli.ru/data.json
 }
