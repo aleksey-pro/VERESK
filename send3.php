@@ -11,7 +11,7 @@ $mail->CharSet = 'UTF-8';
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'aleksey.flce@gmail.com';
-$mail->Password = '7a068ae30';
+$mail->Password = '';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465; //587, 25 или 2525
 $mail->setFrom('office@veresk-vafli.ru'); //  Ваш Email
