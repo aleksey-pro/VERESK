@@ -32,9 +32,18 @@
 		align-items: center;
 	    position: relative;
 
-		img {
+		img.main-image {
 			width: 100%;
 		}
+		
+		img.search-icon {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			left: 50%;
+			bottom: 20%;
+		}
+
 
 	}
 

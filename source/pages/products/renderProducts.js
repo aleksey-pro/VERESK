@@ -10,7 +10,7 @@ const renderProducts = (item, headTitle) => {
     product.querySelector('.desc-param__value--fasovka').textContent = item.fasovka;
     product.querySelector('.desc-param__value--numPerBox').textContent = item.numPerBox;
     product.querySelector('.main-image').src = 'images/products/' + item.url;
-    product.querySelector('.big-image').src = 'images/products/' + item.url;
+    product.querySelector('.big-image').src = 'images/products/big/' + item.urlBig;
     return product;
 };
 
