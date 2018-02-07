@@ -8,7 +8,7 @@ import loadProduction from './load';
 
 const ENTER_KEYCODE = 27;
 
-// Correct height of goods
+// Correct height of goods, create big image popups
 
 const correctHeights = () => {	
     const productBlocks = document.querySelectorAll('.product-item__image');	
@@ -43,20 +43,28 @@ const correctHeights = () => {
 
 $(document).ready(function() {
 
-// Set backgroundImage
+    // Set backgroundImage
 
     const leftImage = document.querySelector('.aside');
     leftImage.style.backgroundImage = 'url(images/menu_bg_1.jpg)';	
 
+
+    // Open production pages and make style of links
+
     let hash = window.location.hash;
+    let categoryLinks = document.querySelectorAll('.products-menu__link');
     if(hash === '#vafli') {
         loadProduction(0, fillProducts, correctHeights);
+        categoryLinks[0].parentElement.classList.add('products-menu__item--active');
     }else if (hash === '#tubes') {
         loadProduction(1, fillProducts, correctHeights);
+        categoryLinks[1].parentElement.classList.add('products-menu__item--active');
     }else if (hash === '#torts') {
         loadProduction(2, fillProducts, correctHeights);
+        categoryLinks[2].parentElement.classList.add('products-menu__item--active');
     }else if (hash === '#diets') {
         loadProduction(3, fillProducts, correctHeights);
+        categoryLinks[3].parentElement.classList.add('products-menu__item--active');
     }
 
     // trigger menu to open when page is loaded

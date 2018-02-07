@@ -1,7 +1,7 @@
 export default function (idx, onLoad, onLoadEnd) {
     const xhr = new XMLHttpRequest();
 
-    xhr.addEventListener('load', () => { //https://icons8.com/preloaders/en/circular
+    xhr.addEventListener('load', () => { //https://icons8.com/preloaders/en/circular //var escapedPosts = xhr.responseText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"</g,'&lt;').replace(/>"/g,'&gt;');
         if (xhr.status === 200) {
             onLoad(xhr.response, idx);
         }
@@ -17,6 +17,7 @@ export default function (idx, onLoad, onLoadEnd) {
     });
 
     xhr.responseType = 'json';
-    xhr.open('GET', 'https://raw.githubusercontent.com/davegahn/VERESK/master/data.json'); //  
-    xhr.send(); // http://veresk-vafli.ru/data.json
+
+    xhr.open('GET', 'http://veresk-vafli.ru/data.json'); //  
+    xhr.send(); // https://raw.githubusercontent.com/davegahn/VERESK/master/data.json
 }
