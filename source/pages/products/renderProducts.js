@@ -1,3 +1,10 @@
+
+/**
+ * Функция генерации блока с товаром и заполнения его данными
+ * @param  {String} item      [категория товара]
+ * @param  {String} headTitle [наименование заголовка]
+ * @return {Element}          [блок с продуктом (DOM-element)]
+ */
 const renderProducts = (item, headTitle) => {
     let productsTemplate = document.querySelector('template').content;
     let product = productsTemplate.cloneNode(true);
@@ -14,6 +21,11 @@ const renderProducts = (item, headTitle) => {
     return product;
 };
 
+/**
+ * Функция подготовки данных, полученных с сервера, для вставки в блок товара
+ * @param  {Array} data [массив полученных данных]
+ * @param  {Number} idx  [индекс соответствующей категории]
+ */
 export function fillProducts(data, idx) {
     let container = document.querySelector('.products__wrapper');
     container.innerHTML = '';

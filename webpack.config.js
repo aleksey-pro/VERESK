@@ -7,7 +7,7 @@ const devserver = require('./webpack/devserver');
 const sass = require('./webpack/sass');
 const css = require('./webpack/css');
 const extractCSS = require('./webpack/css.extract');
-const uglifyJS = require('./webpack/js.uglify');
+const babelMin = require('./webpack/babelMin.js');
 const images = require('./webpack/images');
 const fonts = require('./webpack/fonts');
 const js = require('./webpack/babel.js');
@@ -74,7 +74,7 @@ module.exports = function(env) {
             common,
             extractCSS(),
             js(),            
-            // uglifyJS(), replace with babel-minify!!!!
+            babelMin()
         ]);
     }
     if (env === 'development'){

@@ -21,11 +21,18 @@
 	position: absolute;
 	top: 1em;
 	right: 1em;
+
+	&:before {
+    content: "\2715";
+	}
+
+    &:hover {
+		cursor: pointer;
+		background-color: darken(#fff, 10%);
+
+    }
 }
 
-.modal__close:before {
-    content: "\2715";
-}
 
 #modal-1 {
 	.modal__content {

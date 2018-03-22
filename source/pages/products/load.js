@@ -1,3 +1,10 @@
+/**
+ * Функция загрузки данных с сервера
+ * @param  {number} idx         [индекс категории, соотсветствующий индексу подмассива данных]
+ * @param  {Function} onLoad    [коллбек при успешной загрузки]
+ * @param  {Function} onLoadEnd [коллбек по окончанию успешной загрузки]
+ * @return {Array}              [массив данных c товарами]
+ */
 export default function (idx, onLoad, onLoadEnd) {
     const xhr = new XMLHttpRequest();
 

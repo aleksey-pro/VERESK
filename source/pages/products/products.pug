@@ -40,7 +40,12 @@ block main
           .desc-param
             .desc-param__name Гофрокороб (мм)  
             .desc-param__value.desc-param__value--box 345х265х200
-      .product-modal
-        .product-modal__wrapper
-          img(src=require('./vafli1.png') alt='Продукция Вереск' class="big-image")
-          button(aria-label="Close modal").modal__close
+      .product-modal__overlay
+        .product-modal__table
+          .product-modal__cell
+            .product-modal__modal
+              img(src=require('./vafli1.png') alt='Продукция Вереск' class="big-image")
+              button(aria-label="Close modal").modal__close      
+
+
+
