@@ -1,6 +1,6 @@
 @import "../../sass/_vars";
 
-.products__wrapper {
+.products-wrapper {
 	width: 75.3vw;
 	display: flex;
 	flex-direction: column;
@@ -14,7 +14,15 @@
     }
 }
 
-.heading--products {
+.loader {
+    display: flex;
+    height: 100vh;
+    background-color: $white;
+    margin-top: -170px;
+    justify-content: center;
+}
+
+.products-heading {
 	top: 35px;
 }
 
@@ -44,36 +52,6 @@
 			right: 2%;
 			bottom: 5%;
 		}
-
-
-	}
-
-	&__desc {
-		flex: 1 0 50%;
-		display: flex;
-		flex-direction: column;		
-		justify-content: space-around;
-		box-sizing: border-box;
-		padding: 0 5vw;
-		position: relative;
-		overflow: hidden;
-    	background-color: $white;
-	}
-
-	&__desc-title {
-		text-align: center;
-	    font-family: Olympia_Deco, Arial;
-	    font-size: 25.3px;
-
-		@include phones() {
-			font-size: 20.3px;
-		}
-	}
-
-	&__desc-params {
-		@include phones() {
-			font-size: 15.83px!important;	
-		}		
 	}
 
 	@include phones() {
@@ -82,9 +60,18 @@
 	}
 }
 
-.product-item {
+.product-desc {
+	flex: 1 0 50%;
+	display: flex;
+	flex-direction: column;		
+	justify-content: space-around;
+	box-sizing: border-box;
+	padding: 0 5vw;
+	position: relative;
+	overflow: hidden;
+	background-color: $white;
 
-	.product-item__desc-pointer {
+	&__pointer {
 	    position: absolute;
 	    left: 0;
 	    top: calc(50% - 48px);
@@ -99,21 +86,41 @@
 		    border: 22px solid transparent;
 		    border-top: 22px solid $dark-blue;
 	    }
-	} 	
+	} 
+
+	&__title {
+		text-align: center;
+	    font-family: Olympia_Deco, Arial;
+	    font-size: 25.3px;
+
+		@include phones() {
+			font-size: 20.3px;
+		}
+	}
+
+	&__text {
+		text-align: center;	
+		font-size: 20.83px;	
+		word-wrap: break-word;
+
+		@include phones() {
+			font-size: 15.83px!important;	
+		}
+	}
+
+	@include phones() {
+		padding: 52px 5vw 10px;
+	}
 }
 
-.product-item__desc-text {
-	text-align: center;	
-	font-size: 20.83px;	
-	word-wrap: break-word;
+
+.product-desc__params {
+	font-size: 20.83px;
 
 	@include phones() {
 		font-size: 15.83px!important;	
 	}
-}
 
-.product-item__desc-params {
-	font-size: 20.83px;
 	.desc-param {
 		border-bottom: 1px solid #000;
 		display: flex;
@@ -129,7 +136,7 @@
 	// 	z-index: -1; // TODO: не работает для того, чтобы отоображать внутренние тени
 	// }
 
-	.product-item__desc-pointer {
+	.product-desc__pointer {
 	    position: absolute;
 	    right: 0;
 	    left: auto;
@@ -154,48 +161,38 @@
 
 }
 
-@include phones() {
-	.product-item__desc {
-		padding: 52px 5vw 10px;
+
+// modal image
+
+
+.product-modal {
+
+	&__overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(#000, 0.8);
+		z-index: 100000;
+		overflow: auto;
+		height: 100%;
+		width: 100%;
 	}
-}
 
+	&__table {
+		display: table;
+		height: 100%;
+		width: 100%;
+	}
 
-.loader {
-    display: flex;
-    height: 100vh;
-    background-color: $white;
-    margin-top: -170px;
-    justify-content: center;
-}
-
-
-.product-modal__overlay {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(#000, 0.8);
-	z-index: 100000;
-	overflow: auto;
-	height: 100%;
-	width: 100%;
-}
-
-
-.product-modal__table {
-	display: table;
-	height: 100%;
-	width: 100%;
-}
-
-.product-modal__cell {
-	display: table-cell;
-	padding: 0 1em;
-	vertical-align: middle;
-	text-align: center;
+	&__cell {
+		display: table-cell;
+		padding: 0 1em;
+		vertical-align: middle;
+		text-align: center;
+	}
 }
 
 .product-modal__modal {

@@ -3,7 +3,7 @@ block title
   | Вереск
 block main
   section#products
-    .products__wrapper
+    .products-wrapper
       .loader
         img(src=require('./loader.svg') width="100")                               
   footer.footer
@@ -12,19 +12,19 @@ block main
         span ооо вереск              
   template        
     .product-item 
-      .heading.heading--products вафли       
+      .heading.products-heading вафли       
       .product-item__image
         a(href="#" class="big-image-link")
           img(src=require("./vafli1.png") alt="Продукция вереск" class="main-image")
-          img(src=require("./i-search.svg") alt="" class="main-image" class="search-icon")
-      .product-item__desc
-        .product-item__desc-pointer
-        .product-item__desc-title вафли весовые
-        .product-item__desc-text
+          img(src=require("./i-search.svg") alt="" class="search-icon")
+      .product-desc
+        .product-desc__pointer
+        .product-desc__title вафли весовые
+        .product-desc__text
           | Сливочно-ванильные, крем-брюле, топленое молоко,
           | какао-шоколадные, с ароматом лесного ореха,
           | с ароматом лимона, с ароматом лесных ягод
-        .product-item__desc-params
+        .product-desc__params
           .desc-param
             .desc-param__name Срок годности(мес)  
             .desc-param__value.desc-param__value--before 6
@@ -40,12 +40,12 @@ block main
           .desc-param
             .desc-param__name Гофрокороб (мм)  
             .desc-param__value.desc-param__value--box 345х265х200
-      .product-modal__overlay
+      .product-modal.product-modal__overlay
         .product-modal__table
           .product-modal__cell
             .product-modal__modal
               img(src=require('./vafli1.png') alt='Продукция Вереск' class="big-image")
-              button(aria-label="Close modal").modal__close      
+              button(aria-label="Close modal").modal__close    
 
 
 

@@ -8,9 +8,9 @@
 const renderProducts = (item, headTitle) => {
     let productsTemplate = document.querySelector('template').content;
     let product = productsTemplate.cloneNode(true);
-    product.querySelector('.heading--products').textContent = headTitle;
-    product.querySelector('.product-item__desc-title').textContent = item.title;
-    product.querySelector('.product-item__desc-text').textContent = item.desc;
+    product.querySelector('.products-heading').textContent = headTitle;
+    product.querySelector('.product-desc__title').textContent = item.title;
+    product.querySelector('.product-desc__text').textContent = item.desc;
     product.querySelector('.desc-param__value--before').textContent = item.before;
     product.querySelector('.desc-param__value--weight').textContent = item.weight;
     product.querySelector('.desc-param__value--box').textContent = item.boxSize;
@@ -27,7 +27,7 @@ const renderProducts = (item, headTitle) => {
  * @param  {Number} idx  [индекс соответствующей категории]
  */
 export function fillProducts(data, idx) {
-    let container = document.querySelector('.products__wrapper');
+    let container = document.querySelector('.products-wrapper');
     container.innerHTML = '';
     let fragment = document.createDocumentFragment();
     for(let keys in data[idx]) {
