@@ -1,5 +1,4 @@
-node_modules
-.idea
-build
-source/phpMailer/
-images
+/node_modules/
+/build/
+/source/phpMailer/
+/images/

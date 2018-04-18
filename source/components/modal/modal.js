@@ -14,23 +14,23 @@ const form = $('.contacts-form__form');
  * @return {[type]} [description]
  */
 const onSend = () => {
-    MicroModal.show('modal-3');
-    form.reset;
+  MicroModal.show('modal-3');
+  form.reset;
 };
 
 /**
  * Функция подготовки данных заявки, и вызова
  * функции отправки их на сервер
  */
-const sendMessage = () => {  
-    form.on('submit', evt => {
-        const formData = new FormData(form);
-        sendMail(formData, onSend);
-        evt.preventDefault();
-        if (evt.which === ENTER_KEYCODE) {
-            evt.preventDefault();
-        }  
-    });   
+const sendMessage = () => {
+  form.on('submit', evt => {
+    const formData = new FormData(form);
+    sendMail(formData, onSend);
+    evt.preventDefault();
+    if (evt.which === ENTER_KEYCODE) {
+      evt.preventDefault();
+    }
+  });
 };
 
 /*********************************************************************/
