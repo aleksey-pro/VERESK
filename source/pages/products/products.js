@@ -21,84 +21,108 @@ const client = contentful.createClient({
   accessToken: '9dd7bfbe40eb7ddc918a402442cc428ef8da74747746bea8945c1c653417878d',
 });
 
-const loadProduction = function (category_id) {
-  client.getEntries({
-    'content_type': category_id,
-  })
-    .then(function (entries) {
-      // console.log(entries);
+const PRODUCT_CATEGORIES = {
+  products: { id: 'product', title: 'ВАФЛИ' },
+  tubes: { id: 'tubes', title: 'ВАФЕЛЬНЫЕ ТРУБОЧКИ' },
+  torts: { id: 'torts', title: 'ТОРТЫ' },
+  diets: { id: 'diets', title: 'ДИЕТИЧЕСКАЯ ПРОДУКЦИЯ' },
+};
+
+const loadProduction = function(category_id) {
+  client
+    .getEntries({
+      content_type: category_id,
+    })
+    .then(function(entries) {
       fillProducts(entries);
+    })
+    .then(function() {
+      correctHeights();
+      emitModal();
     });
 };
 
-const renderProducts = (item) => {
-  // console.log(item);
-  let productsTemplate = document.querySelector('template').content;
-  let product = productsTemplate.cloneNode(true);
-  // product.querySelector('.products-heading').textContent = item.title;
-  product.querySelector('.product-desc__title').textContent = item.fields.title;
-  product.querySelector('.product-desc__text').textContent = item.fields.description;
-  // product.querySelector('.main-image').src = item.image.file.url;
-  // product.querySelector('.big-image').src = item.bigImage.file.url;
-  //   product.querySelector('.desc-param__value--before').textContent = item.before;
-  //   product.querySelector('.desc-param__value--weight').textContent = item.weight;
-  //   product.querySelector('.desc-param__value--box').textContent = item.boxSize;
-  //   product.querySelector('.desc-param__value--fasovka').textContent = item.fasovka;
-  //   product.querySelector('.desc-param__value--numPerBox').textContent = item.numPerBox;
+/**
+ * Вспомогательная функция извлечения значения из строки, заполняемой
+ * характеристиками товара
+ * @param {String} item [запись в массиве характеристик товара]
+ * @return {String}
+ */
+const extractVal = item => {
+  const resArr = item.split(' ');
+  const lastRes = resArr[resArr.length - 1];
+  return lastRes;
+};
+
+const renderProducts = item => {
+  const productsTemplate = document.querySelector('template').content;
+  const product = productsTemplate.cloneNode(true);
+
+  let catTitle = product.querySelector('.products-heading');
+  if (item.sys.contentType.sys.id === 'products') {
+    catTitle.textContent = PRODUCT_CATEGORIES.products.title;
+  } else if (item.sys.contentType.sys.id === 'tubes') {
+    catTitle.textContent = PRODUCT_CATEGORIES.tubes.title;
+  } else if (item.sys.contentType.sys.id === 'torts') {
+    catTitle.textContent = PRODUCT_CATEGORIES.torts.title;
+  } else if (item.sys.contentType.sys.id === 'diets') {
+    catTitle.textContent = PRODUCT_CATEGORIES.diets.title;
+  }
+
+  if (item.fields.title)
+    product.querySelector('.product-desc__title').textContent = item.fields.title;
+  if (item.fields.description)
+    product.querySelector('.product-desc__text').textContent = item.fields.description;
+  if (item.fields.image.fields.file.url)
+    product.querySelector('.main-image').src = item.fields.image.fields.file.url;
+  if (item.fields.bigImage.fields.file.url)
+    product.querySelector('.big-image').src = item.fields.bigImage.fields.file.url;
+  // prettier-ignore
+  if (item.fields.chars[0]) product.querySelector('.desc-param__value--before').textContent = extractVal(item.fields.chars[0]);
+  // prettier-ignore
+  if (item.fields.chars[1]) product.querySelector('.desc-param__value--fasovka').textContent = extractVal(item.fields.chars[1]);
+  // prettier-ignore
+  if (item.fields.chars[2]) product.querySelector('.desc-param__value--numPerBox').textContent = extractVal(item.fields.chars[2]);
+  // prettier-ignore
+  if (item.fields.chars[3]) product.querySelector('.desc-param__value--weight').textContent = extractVal(item.fields.chars[3]);
+  // prettier-ignore
+  if (item.fields.chars[4]) product.querySelector('.desc-param__value--box').textContent = extractVal(item.fields.chars[4]);
+
   return product;
 };
 
-const fillProducts = (data) => {
-  console.log(data);
+const fillProducts = data => {
   let container = document.querySelector('.products-wrapper');
   container.innerHTML = '';
   let fragment = document.createDocumentFragment();
 
-  data.items.forEach(function (entry) {
-    console.log(entry);
-    // fragment.appendChild(renderProducts(entry));
-    // console.log(entry.fields.title);
-    // console.log(entry.fields.description);
-    // console.log(entry.fields.chars);
-    // console.log(entry.image.fields.file.url);
-    // console.log(entry.bigImage.fields.file.url);
+  data.items.forEach(function(item) {
+    fragment.appendChild(renderProducts(item));
   });
   container.appendChild(fragment);
 };
 
+/**
+ * Функция подгрузки товаров соответствующей категории, вставляем на страницу
+ * отрендеренный блок с товарами и стилизуем соответствующую ссылку в меню
+ */
 const renderProductList = () => {
-
-  const product_categories = {
-    product: 'product',
-    tubes: 'tubes',
-    torts: 'torts',
-    diets: 'diets',
-  };
-
   let hash = window.location.hash;
   let categoryLinks = document.querySelectorAll('.products-menu__link');
   if (hash === '#vafli') {
-    loadProduction(product_categories.product);
+    loadProduction(PRODUCT_CATEGORIES.products.id);
     categoryLinks[0].parentElement.classList.add('products-menu__item--active');
   } else if (hash === '#tubes') {
-    loadProduction(product_categories.tubes);
+    loadProduction(PRODUCT_CATEGORIES.tubes.id);
+    categoryLinks[1].parentElement.classList.add('products-menu__item--active');
+  } else if (hash === '#torts') {
+    loadProduction(PRODUCT_CATEGORIES.torts.id);
+    categoryLinks[1].parentElement.classList.add('products-menu__item--active');
+  } else if (hash === '#diets') {
+    loadProduction(PRODUCT_CATEGORIES.diets.id);
     categoryLinks[1].parentElement.classList.add('products-menu__item--active');
   }
-  // else if (hash === '#torts') {
-  //   loadProduction(2, fillProducts, composeCallbacks);
-  //   categoryLinks[2].parentElement.classList.add('products-menu__item--active');
-  // } else if (hash === '#diets') {
-  //   loadProduction(3, fillProducts, composeCallbacks);
-  //   categoryLinks[3].parentElement.classList.add('products-menu__item--active');
-  // }
 };
-
-
-
-
-
-
-
 
 /**
  * Функция корректироки высоты блока с фотогорафиями продукции.
@@ -127,19 +151,19 @@ const emitModal = () => {
   const modalLinks = $('.big-image-link');
   const modalClose = $('.modal__close');
 
-  modalLinks.on('click', function (e) {
+  modalLinks.on('click', function(e) {
     console.log('click');
     e.preventDefault();
     let item = this.closest('.product-item');
     let $modalW = $(item).find('.product-modal__overlay');
     $modalW.fadeIn(500);
   });
-  modalClose.on('click', function () {
+  modalClose.on('click', function() {
     let itemToClose = this.closest('.product-modal__overlay');
     $(itemToClose).fadeOut(500);
   });
 
-  $(document).keyup(function (e) {
+  $(document).keyup(function(e) {
     if (e.keyCode === ENTER_KEYCODE) {
       let itemToClose = $('.product-modal__overlay');
       $(itemToClose).fadeOut(500);
@@ -148,46 +172,15 @@ const emitModal = () => {
 };
 
 /**
- * Вызов 2 функций в коллбеке onLoadEnd
- */
-const composeCallbacks = () => {
-  correctHeights();
-  emitModal();
-};
-
-
-/**
- * Функция подгрузки товаров соответствующей категории, вставляем на страницу
- * отрендеренный блок с товарами и стилизуем соответствующую ссылку в меню
- */
-// const renderProductList = () => {
-//   let hash = window.location.hash;
-//   let categoryLinks = document.querySelectorAll('.products-menu__link');
-//   if (hash === '#vafli') {
-//     loadProduction(0, fillProducts, composeCallbacks);
-//     categoryLinks[0].parentElement.classList.add('products-menu__item--active');
-//   } else if (hash === '#tubes') {
-//     loadProduction(1, fillProducts, composeCallbacks);
-//     categoryLinks[1].parentElement.classList.add('products-menu__item--active');
-//   } else if (hash === '#torts') {
-//     loadProduction(2, fillProducts, composeCallbacks);
-//     categoryLinks[2].parentElement.classList.add('products-menu__item--active');
-//   } else if (hash === '#diets') {
-//     loadProduction(3, fillProducts, composeCallbacks);
-//     categoryLinks[3].parentElement.classList.add('products-menu__item--active');
-//   }
-// };
-
-/**
- * Функция загрузки страницы с товарами и прокрутки вверх
+ * Функция загрузки страницы с товарами при нажатии на пункт меню, с вызовом прокрутки вверх
  * @param  {Object} evt
  * @param  {number} idx  [индекс категории]
  * @param  {String} hash [хеш строки ввода]
  */
-const changeProduction = (evt, idx, hash) => {
+const changeProduction = (evt, id, hash) => {
   evt.preventDefault();
   window.location.hash = hash;
-  loadProduction(idx, fillProducts, composeCallbacks);
+  loadProduction(id); //fillProducts
   $('html, body').animate({ scrollTop: 0 }, 1000);
 };
 
@@ -195,7 +188,7 @@ const changeProduction = (evt, idx, hash) => {
 /**********************  При загрузке страницы **********************/
 /********************************************************************/
 
-$(document).ready(function () {
+$(document).ready(function() {
   /**
    * Устанавливаем фоновую картику
    */
@@ -213,10 +206,8 @@ $(document).ready(function () {
   const collapseTrigger = mainMenu.querySelector('.collapse-trigger');
   const menuCollapse = mainMenu.querySelector('.products-menu');
   const event = new Event('loadClick');
-
-  collapseTrigger.addEventListener('loadClick', () => {
-    menuCollapse.classList.remove('hidden');
-  }, false);
+  // prettier-ignore
+  collapseTrigger.addEventListener( 'loadClick', () => { menuCollapse.classList.remove('hidden');}, false);
   collapseTrigger.dispatchEvent(event);
 
   /**
@@ -228,18 +219,17 @@ $(document).ready(function () {
   const dietsLink = document.getElementById('diets');
 
   vafliLink.addEventListener('click', e => {
-    changeProduction(e, 0, '#vafli');
+    changeProduction(e, PRODUCT_CATEGORIES.products.id, '#vafli');
   });
   tubesLink.addEventListener('click', e => {
-    changeProduction(e, 1, '#tubes');
+    changeProduction(e, PRODUCT_CATEGORIES.tubes.id, '#tubes');
   });
   tortsLink.addEventListener('click', e => {
-    changeProduction(e, 2, '#torts');
+    changeProduction(e, PRODUCT_CATEGORIES.torts.id, '#torts');
   });
   dietsLink.addEventListener('click', e => {
-    changeProduction(e, 3, '#diets');
+    changeProduction(e, PRODUCT_CATEGORIES.diets.id, '#diets');
   });
 
   emitModal();
-
 });
