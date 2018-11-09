@@ -6,27 +6,38 @@ import './products.scss';
 import 'normalize.css';
 
 /**
- * Импорт компонентов меню, рендеринга продуктов и функции работы с сервером
+ * Импорт компонента меню, объекта категорий и функции рендеринга продукции
  */
 import createMenu from '../../components/aside/aside';
-import {fillProducts} from './renderProducts.js';
-import loadProduction from './load';
+import { renderProducts, PRODUCT_CATEGORIES } from './renderProducts.js';
+// import loadProduction from './load';
+
+// --------------------------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Подключаем API contentful
+ */
+import * as contentful from 'contentful';
+const client = contentful.createClient({
+  space: '8wup12v4ck67', //fvwpxwob4rjn
+  accessToken: '489e656b6e4ca98d652374f643e13ed299ae2a97daf145491cf5092dc24f231f', //9dd7bfbe40eb7ddc918a402442cc428ef8da74747746bea8945c1c653417878d
+});
 
 /**
  * Функция корректироки высоты блока с фотогорафиями продукции.
  * Наблюдается в некоторых браузерах - картинка вылезает за блок
  */
-const correctHeights = () => {	    
-    const productBlocks = document.querySelectorAll('.product-item__image');
+const correctHeights = () => {
+  const productBlocks = document.querySelectorAll('.product-item__image');
 
-    [].forEach.call(productBlocks, productBlock => {
-        let productBlockHeight = productBlock.offsetHeight;
-        let productImage = productBlock.children[0];
-        let productHeight = productImage.offsetHeight;
-        if(productHeight >= productBlockHeight) {
-            productImage.style.height = '100%';
-        }
-    });    
+  [].forEach.call(productBlocks, productBlock => {
+    let productBlockHeight = productBlock.offsetHeight;
+    let productImage = productBlock.children[0];
+    let productHeight = productImage.offsetHeight;
+    if (productHeight >= productBlockHeight) {
+      productImage.style.height = '100%';
+    }
+  });
 };
 
 /**
@@ -35,72 +46,136 @@ const correctHeights = () => {
  */
 
 const emitModal = () => {
-    const ENTER_KEYCODE = 27; 
-    const modalLinks = $('.big-image-link');
-    const modalClose = $('.modal__close');
+  const ENTER_KEYCODE = 27;
+  const modalLinks = $('.big-image-link');
+  const modalClose = $('.modal__close');
 
-    modalLinks.on('click', function(e) {
-        console.log('click');
-        e.preventDefault();
-        let item = this.closest('.product-item');
-        let $modalW = $(item).find('.product-modal__overlay');
-        $modalW.fadeIn(500);
-    });    
-    modalClose.on('click', function() {
-        let itemToClose = this.closest('.product-modal__overlay');    
-        $(itemToClose).fadeOut(500);
-    });
+  modalLinks.on('click', function(e) {
+    e.preventDefault();
+    let item = this.closest('.product-item');
+    let $modalW = $(item).find('.product-modal__overlay');
+    $('html, body').css('overflow-y', 'hidden');
+    $modalW.fadeIn(500);
+  });
+  modalClose.on('click', function() {
+    let itemToClose = this.closest('.product-modal__overlay');
+    $(itemToClose).fadeOut(500);
+    $('html, body').css('overflow-y', 'auto');
+  });
 
-    $(document).keyup(function(e) {
-        if (e.keyCode === ENTER_KEYCODE) {
-            let itemToClose = $('.product-modal__overlay'); 
-            $(itemToClose).fadeOut(500);
-        }
-    });
+  $(document).keyup(function(e) {
+    if (e.keyCode === ENTER_KEYCODE) {
+      let itemToClose = $('.product-modal__overlay');
+      $(itemToClose).fadeOut(500);
+      $('html, body').css('overflow-y', 'auto');
+    }
+  });
 };
 
 /**
- * Вызов 2 функций в коллбеке onLoadEnd
+ * Функция оставяет меню открытым при переходе по категориям
  */
-const composeCallbacks = () => {
-    correctHeights();
-    emitModal();
+const menuOpen = () => {
+  const mainMenu = document.querySelector('.main-menu');
+  const collapseTrigger = mainMenu.querySelector('.collapse-trigger');
+  const menuCollapse = mainMenu.querySelector('.products-menu');
+  const event = new Event('loadClick');
+  // prettier-ignore
+  collapseTrigger.addEventListener( 'loadClick', () => { menuCollapse.classList.remove('hidden');}, false);
+  collapseTrigger.dispatchEvent(event);
 };
 
+/**
+ * Функция меняет товары категории при нажатии на соответствующий пункт меню
+ */
+const changeCategory = () => {
+  const vafliLink = document.getElementById('vafli');
+  const tubesLink = document.getElementById('tubes');
+  const tortsLink = document.getElementById('torts');
+  const dietsLink = document.getElementById('diets');
+
+  vafliLink.addEventListener('click', e => {
+    changeProduction(e, PRODUCT_CATEGORIES.products.id, '#vafli');
+  });
+  tubesLink.addEventListener('click', e => {
+    changeProduction(e, PRODUCT_CATEGORIES.tubes.id, '#tubes');
+  });
+  tortsLink.addEventListener('click', e => {
+    changeProduction(e, PRODUCT_CATEGORIES.torts.id, '#torts');
+  });
+  dietsLink.addEventListener('click', e => {
+    changeProduction(e, PRODUCT_CATEGORIES.diets.id, '#diets');
+  });
+};
+
+/**
+ * Функция, обнуляет контейнер для товров и заполняет его вновь созданным списком
+ * @param {Object} data [данные, полученные от сервера]
+ */
+const fillProducts = data => {
+  let container = document.querySelector('.products-wrapper');
+  container.innerHTML = '';
+  let fragment = document.createDocumentFragment();
+
+  data.items.forEach(function(item) {
+    fragment.appendChild(renderProducts(item));
+  });
+  container.appendChild(fragment);
+};
+
+/**
+ * Функция-promise получения объекта с товарами соответственной категории,
+ * и вызова функций, формирующих список товаров
+ * @param {String} id [id категории]
+ */
+const loadProduction = function(category_id) {
+  client
+    .getEntries({
+      content_type: category_id,
+      order: 'fields.order',
+    })
+    .then(function(entries) {
+      fillProducts(entries);
+    })
+    .then(function() {
+      correctHeights();
+      emitModal();
+    });
+};
 
 /**
  * Функция подгрузки товаров соответствующей категории, вставляем на страницу
  * отрендеренный блок с товарами и стилизуем соответствующую ссылку в меню
  */
 const renderProductList = () => {
-    let hash = window.location.hash;
-    let categoryLinks = document.querySelectorAll('.products-menu__link');
-    if(hash === '#vafli') {
-        loadProduction(0, fillProducts, composeCallbacks);
-        categoryLinks[0].parentElement.classList.add('products-menu__item--active');
-    }else if (hash === '#tubes') {
-        loadProduction(1, fillProducts, composeCallbacks);
-        categoryLinks[1].parentElement.classList.add('products-menu__item--active');
-    }else if (hash === '#torts') {
-        loadProduction(2, fillProducts, composeCallbacks);
-        categoryLinks[2].parentElement.classList.add('products-menu__item--active');
-    }else if (hash === '#diets') {
-        loadProduction(3, fillProducts, composeCallbacks);
-        categoryLinks[3].parentElement.classList.add('products-menu__item--active');
-    }        
+  let hash = window.location.hash;
+  let categoryLinks = document.querySelectorAll('.products-menu__link');
+  if (hash === '#vafli') {
+    loadProduction(PRODUCT_CATEGORIES.products.id);
+    categoryLinks[0].parentElement.classList.add('products-menu__item--active');
+  } else if (hash === '#tubes') {
+    loadProduction(PRODUCT_CATEGORIES.tubes.id);
+    categoryLinks[1].parentElement.classList.add('products-menu__item--active');
+  } else if (hash === '#torts') {
+    loadProduction(PRODUCT_CATEGORIES.torts.id);
+    categoryLinks[1].parentElement.classList.add('products-menu__item--active');
+  } else if (hash === '#diets') {
+    loadProduction(PRODUCT_CATEGORIES.diets.id);
+    categoryLinks[1].parentElement.classList.add('products-menu__item--active');
+  }
 };
 
 /**
- * Функция загрузки страницы с товарами и прокрутки вверх
- * @param  {Object} evt 
+ * Функция загрузки страницы с товарами при нажатии на пункт меню, с вызовом прокрутки вверх
+ * @param  {Object} evt
  * @param  {number} idx  [индекс категории]
  * @param  {String} hash [хеш строки ввода]
  */
-const changeProduction = (evt, idx, hash) => {
-    evt.preventDefault();
-    window.location.hash = hash;
-    loadProduction(idx, fillProducts, composeCallbacks);
-    $('html, body').animate({scrollTop: 0}, 1000);
+const changeProduction = (evt, id, hash) => {
+  evt.preventDefault();
+  window.location.hash = hash;
+  loadProduction(id);
+  $('html, body').animate({ scrollTop: 0 }, 1000);
 };
 
 /*********************************************************************/
@@ -108,50 +183,21 @@ const changeProduction = (evt, idx, hash) => {
 /********************************************************************/
 
 $(document).ready(function() {
-    /**
-     * Устанавливаем фоновую картику 
-     */
-    const leftImage = document.querySelector('.aside');
-    leftImage.style.backgroundImage = 'url(images/menu_bg_1.jpg)';	
-    /**
-     * Подгружаем товары категории, по которой перешли на страницу
-     */
-    renderProductList();    
-
-    /**
-     * Заставляем меню оставаться открытым при загрузке страницы с товарами
-     */
-    const mainMenu = document.querySelector('.main-menu');
-    const collapseTrigger = mainMenu.querySelector('.collapse-trigger');
-    const menuCollapse = mainMenu.querySelector('.products-menu');
-    const event = new Event('loadClick');
-
-    collapseTrigger.addEventListener('loadClick', () => { 
-        menuCollapse.classList.remove('hidden');        
-    }, false);
-    collapseTrigger.dispatchEvent(event);
-
-    /**
-     * Меняем товары соответствующей категории при нажатии на соответствующий пункт меню
-     */
-    const vafliLink = document.getElementById('vafli');
-    const tubesLink = document.getElementById('tubes');
-    const tortsLink = document.getElementById('torts');
-    const dietsLink = document.getElementById('diets');
-
-    vafliLink.addEventListener('click', e => {
-        changeProduction(e, 0, '#vafli');
-    });
-    tubesLink.addEventListener('click', e => {
-        changeProduction(e, 1, '#tubes');
-    });
-    tortsLink.addEventListener('click', e => {
-        changeProduction(e, 2, '#torts');
-    });
-    dietsLink.addEventListener('click', e => {
-        changeProduction(e, 3, '#diets');
-    });
-
-    emitModal();
-
+  /**
+   * Устанавливаем фоновую картику в меню
+   */
+  const leftImage = document.querySelector('.aside');
+  leftImage.style.backgroundImage = 'url(images/menu_bg_1.jpg)';
+  /**
+   * Подгружаем товары категории, по которой перешли на страницу
+   */
+  renderProductList();
+  /**
+   * Заставляем меню оставаться открытым при загрузке страницы с товарами
+   */
+  menuOpen();
+  /**
+   * При смене категории
+   */
+  changeCategory();
 });

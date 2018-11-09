@@ -28,7 +28,7 @@ ul {
   list-style: none;
 }
 
-section, footer {	
+section, footer {
 	display: flex!important;
 	justify-content: flex-end;
 
@@ -44,7 +44,7 @@ section, footer {
 }
 
 .heading {
-	position: absolute;    
+	position: absolute;
     left: -62px;
 	display: block;
 	height: 114px;
@@ -59,7 +59,7 @@ section, footer {
 
 	@include desktops() {
 		height: 57px;
-		line-height: 57px;	
+		line-height: 57px;
 		font-size: 6vw;
 	}
 
@@ -71,9 +71,9 @@ section, footer {
 		@include medium-desktops() {
 			left: -32px;
 			height: 57px;
-			line-height: 57px;	
+			line-height: 57px;
 		}
-	}	
+	}
 }
 
 // footer
@@ -145,13 +145,13 @@ section, footer {
 
 #hamburger-9 {
   position: relative;
-  transition: all 0.3s ease-in-out;	
+  transition: all 0.3s ease-in-out;
 }
 
 
 
 #hamburger-9.is-active {
-  transform: rotate(45deg);	
+  transform: rotate(45deg);
 }
 
 #hamburger-9:before {
@@ -170,12 +170,12 @@ section, footer {
 
 
 #hamburger-9.is-active:before {
-  border: 2px solid #0e0ab3;	
+  border: 2px solid #0e0ab3;
 }
 
 
 #hamburger-9.is-active .aside-trigger__line {
-  width: 20px;	
+  width: 20px;
 }
 
 
