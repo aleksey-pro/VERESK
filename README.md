@@ -27,5 +27,6 @@ _Особенности:_
 
 1. git clone https://github.com/davegahn/VERESK.git app
 2. cd app
-3. yarn install
-4. yarn run start
+3. git checkout contentful
+4. yarn install
+5. yarn run start
