@@ -1,228 +1,225 @@
 @import "../../sass/_vars";
 
-
 .aside {
-	position: fixed;
-	height: 100%;
-	width: 28.7vw;
-	left: 0;
-	top: 0;
-	bottom: 0;
-    transition: all 1s;
-    // z-index: -2;
+  position: fixed;
+  height: 100%;
+  width: 28.7vw;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 1s;
+  // z-index: -2;
 
-	background-color: $white;
-	background-image: url('./menu_bg_3.jpg');
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	background-size: cover;
+  background-color: $white;
+  background-image: url("./menu_bg_3.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
 
-	@media all and (max-width: 1024px) {
-		width: 207px;
-		left: -207px;
-		z-index: 100000;
-	}
-
+  @media all and (max-width: 1024px) {
+    width: 207px;
+    left: -207px;
+    z-index: 100000;
+  }
 }
 
 .is-open {
-	left: 0;
+  left: 0;
 }
 
 .panel {
-	padding-top: 30px;
-	height: 100%;
-	width:  20.3vw;
-	background-color: rgba($white, 0.5);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  padding-top: 30px;
+  height: 100%;
+  width: 20.3vw;
+  background-color: rgba($white, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-	box-shadow: 10px 3px 30px 0px rgba(50, 50, 50, 0.8);
+  box-shadow: 10px 3px 30px 0px rgba(50, 50, 50, 0.8);
 
+  // @include tablets() {
+  //   box-shadow: none;
+  // }
 
-	@media all and (max-width: 1024px) {
-		width: 207px;
-	}
+  @media all and (max-width: 1024px) {
+    width: 207px;
+    box-shadow: none;
+  }
 }
 
 .panel__contact-email {
-	padding: 0 10px;
-	font-size: 1.9vw;
-	text-align: center;
-	font-family: 'Tinos', serif;
-	font-weight: 700;	
-	span {
-		color: $blue;	
-	}
+  padding: 0 10px;
+  font-size: 1.9vw;
+  text-align: center;
+  font-family: "Tinos", serif;
+  font-weight: 700;
+  span {
+    color: $blue;
+  }
 
-	@media all and (max-width: 1024px) {
-		font-size: 15px!important;
-	}	
+  @media all and (max-width: 1024px) {
+    font-size: 15px !important;
+  }
 }
 
 .panel__contact-phone {
-	padding: 0 10px;
-	font-size: 2.8vw;
-	text-align: center;
-	font-family: 'Tinos', serif;
-	span {
-		color: $blue;	
-	}
+  padding: 0 10px;
+  font-size: 2.8vw;
+  text-align: center;
+  font-family: "Tinos", serif;
+  span {
+    color: $blue;
+  }
 
-	@media all and (max-width: 1024px) {
-		font-size: 22px!important;
-	}
+  @media all and (max-width: 1024px) {
+    font-size: 22px !important;
+  }
 }
-
 
 .panel__logo {
-	    padding: 2vh 20px 5vh;
-	img {
-	    width: 24vh;
-	    height: 20vh;
-		display: block;
-		@media all and (max-width: 1200px) {
-		    width: 20vh;
-	    	height: 15vh;
-		}
-	}
+  padding: 2vh 20px 5vh;
+  img {
+    width: 24vh;
+    height: 20vh;
+    display: block;
+    @media all and (max-width: 1200px) {
+      width: 20vh;
+      height: 15vh;
+    }
+  }
 }
 
-
 .panel__title {
-	padding: 0 10px;
-	font-size: 4.9vw;
-	text-align: center;
-	line-height: 1;
-	color: $blue;
-	text-align: left;
-	font-family: 'the_huntsmanregular';
-	text-transform: uppercase;
-	&_sub {
-		font-size: 1.3vw;
-		color: black;
-		font-family: 'Tinos', serif;
-		font-weight: 700;
-		text-transform: inherit;
-		padding-left: 5px;
-		@media all and (max-width: 1024px) {
-			font-size: 10.24px!important;
-		}
-	}
+  padding: 0 10px;
+  font-size: 4.9vw;
+  text-align: center;
+  line-height: 1;
+  color: $blue;
+  text-align: left;
+  font-family: "the_huntsmanregular";
+  text-transform: uppercase;
+  &_sub {
+    font-size: 1.3vw;
+    color: black;
+    font-family: "Tinos", serif;
+    font-weight: 700;
+    text-transform: inherit;
+    padding-left: 5px;
+    @media all and (max-width: 1024px) {
+      font-size: 10.24px !important;
+    }
+  }
 
-	@media all and (max-width: 1024px) {
-		font-size: 40px!important;
-	}
+  @media all and (max-width: 1024px) {
+    font-size: 40px !important;
+  }
 }
 
 ul.main-menu {
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	align-items: stretch;
-	margin-top: 25px;
-	-webkit-box-shadow: 0px -6px 10px 0px rgba(14, 10, 179, 0.4);
-	-moz-box-shadow:    0px -6px 10px 0px rgba(14, 10, 179, 0.4);
-	box-shadow:         0px -6px 10px 0px rgba(14, 10, 179, 0.4);
-  	.main-menu__item {
-	    padding: 15px 0;
-		border-top: 1px solid $brown;
-		transition: all 0.5s ease-in-out;
-		&:last-child {
-			border-bottom: 1px solid $brown;
-		}
-	    .main-menu__link {
-	    	text-decoration: none;
-	    	color: black;
-	    	font-size: 2.8vh;
-	    	font-family: Olympia_Deco, Arial;
-	    	position: relative;
-	    	padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+  margin-top: 25px;
+  -webkit-box-shadow: 0px -6px 10px 0px rgba(14, 10, 179, 0.4);
+  -moz-box-shadow: 0px -6px 10px 0px rgba(14, 10, 179, 0.4);
+  box-shadow: 0px -6px 10px 0px rgba(14, 10, 179, 0.4);
+  .main-menu__item {
+    padding: 15px 0;
+    border-top: 1px solid $brown;
+    transition: all 0.5s ease-in-out;
+    &:last-child {
+      border-bottom: 1px solid $brown;
+    }
+    .main-menu__link {
+      text-decoration: none;
+      color: black;
+      font-size: 2.8vh;
+      font-family: Olympia_Deco, Arial;
+      position: relative;
+      padding: 0 20px;
 
-    		@media all and (max-width: 1024px) {
-				font-size: 2.2vh;
-			}
-
-    	}
-    	.main-menu__link:hover, .main-menu__link:active {
-			color: $blue;
-		}
-  	}
+      @media all and (max-width: 1024px) {
+        font-size: 2.2vh;
+      }
+    }
+    .main-menu__link:hover,
+    .main-menu__link:active {
+      color: $blue;
+    }
+  }
 }
 
-
 ul.products-menu {
-	list-style: none;
-	display: flex;	
-	flex-direction: column;
-	border-top: 1px solid $brown;
-	margin-bottom: -15px;
-  	.products-menu__item {
-	    padding: 5px 0;
-	    background-color: $light-blue;
-	    margin: 3px 0;
-	    padding-left: 50px;
-	    display: block;
-	    transition: all 0.2s ease-in;
-	    .products-menu__link {
-	    	text-decoration: none;
-	    	color: #000;
-	    	font-size: 1.1vw;
-	    	font-family: Olympia_Deco, Arial;
-	    	position: relative;
-	    	transition: inherit;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $brown;
+  margin-bottom: -15px;
+  .products-menu__item {
+    padding: 5px 0;
+    background-color: $light-blue;
+    margin: 3px 0;
+    padding-left: 50px;
+    display: block;
+    transition: all 0.2s ease-in;
+    .products-menu__link {
+      text-decoration: none;
+      color: #000;
+      font-size: 1.1vw;
+      font-family: Olympia_Deco, Arial;
+      position: relative;
+      transition: inherit;
 
-    		@media all and (max-width: 1024px) {
-				font-size: 11.2px!important;
-			}
-    	}
-  	}
+      @media all and (max-width: 1024px) {
+        font-size: 11.2px !important;
+      }
+    }
+  }
 }
 
 ul.products-menu.hidden {
-	display: none;	
+  display: none;
 }
 
-
 .products-menu__link:before {
-	content: '';
-	display: block;
-	width: 10px;
-	height: 2px;
-	background-color: #000;
-	position: absolute;
-	left: -15px;
-	top: 50%;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  left: -15px;
+  top: 50%;
 }
 
 .products-menu__item--active {
-	background-color: #0e0ab3!important;
-	
-	& > a {
-		color: #ffffff!important;
-	}
+  background-color: #0e0ab3 !important;
+
+  & > a {
+    color: #ffffff !important;
+  }
 }
 
 @media all and (max-height: 830px) {
-	.panel__contact-email {
-		font-size: 1.3vw;
-	}
+  .panel__contact-email {
+    font-size: 1.3vw;
+  }
 
-	.panel__contact-phone {
-		font-size: 1.9vw;
-	}
+  .panel__contact-phone {
+    font-size: 1.9vw;
+  }
 
-	.panel__logo {
-	    padding: 2vh 20px 3vh;
-	}	
+  .panel__logo {
+    padding: 2vh 20px 3vh;
+  }
 
-	.panel__title {
-		font-size: 3vw;
-		&_sub {
-			font-size: 1vw;
-		}
-	}
-
+  .panel__title {
+    font-size: 3vw;
+    &_sub {
+      font-size: 1vw;
+    }
+  }
 }

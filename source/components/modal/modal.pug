@@ -1,7 +1,7 @@
 #modal-1(aria-hidden="true").micromodal-slide
   div(tabindex="-1" data-micromodal-close).modal__overlay
     div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container
-      #modal-1-content.modal__content
+      img(src="./images/cart.jpg", alt="").modal__content
       button(aria-label="Close modal" data-micromodal-close).modal__close
 #modal-2(aria-hidden="true").micromodal-slide
   div(tabindex="-1" data-micromodal-close).modal__overlay
@@ -16,10 +16,10 @@
     div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title").modal__container
       #modal-3-content.modal__content
         .modal__company-logo
-          img(src=require('./footer_logo.png') alt='Письмо выслано')        
+          img(src=require('./footer_logo.png') alt='Письмо выслано')
         .modal__dialog
           .modal__dialog-title Cпасибо!
           | Ваша заявка принята!
         .modal__send-image
           img(src=require('./send_logo.png') alt='Письмо выслано')
-      button(aria-label="Close modal" data-micromodal-close).modal__close          
+      button(aria-label="Close modal" data-micromodal-close).modal__close
