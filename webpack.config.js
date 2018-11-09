@@ -17,7 +17,7 @@ const MD5HashPlugin = require('md5-hash-webpack-plugin');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
-  build: path.join(__dirname, 'build'),
+  build: path.join(__dirname, 'docs'),
 };
 
 const common = merge([
